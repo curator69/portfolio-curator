@@ -1,0 +1,9 @@
+.navigation-icon {
+  border-radius: 50%;
+  width: 40px;
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 99999;
+}

@@ -1,5 +1,7 @@
+import "./Navigation.css";
+
 const Navigation = () => {
-  return <div>Nav</div>;
+  return <div className="navigation-wrapper">Nav</div>;
 };
 
 export default Navigation;

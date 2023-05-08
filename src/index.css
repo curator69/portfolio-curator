@@ -1,5 +1,6 @@
 :root {
-  --initial-color: linear-gradient(
+  --initial-bg: black;
+  --nav-bg-1: linear-gradient(
     90deg,
     rgba(21, 60, 255, 1) 0%,
     rgba(189, 42, 176, 1) 63%
@@ -15,9 +16,8 @@
 }
 
 body {
-  background: var(--initial-color);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#153cff",endColorstr="#bd2ab0",GradientType=1);
-  background-repeat: no-repeat;
+  background: var(--initial-bg);
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
+  color: white;
 }

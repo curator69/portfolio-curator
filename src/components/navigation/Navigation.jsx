@@ -13,14 +13,14 @@ const Navigation = () => {
             onClick={() => setNavSelected("Home")}
             style={{ transform: navSelected === "Home" && "translateX(25px)" }}
           >
-            Home
+            <span> Home</span>
           </li>
           <li
             className="navigation-item"
             onClick={() => setNavSelected("Work")}
             style={{ transform: navSelected === "Work" && "translateX(25px)" }}
           >
-            Work
+            <span> Work</span>
           </li>
           <li
             className="navigation-item"
@@ -29,7 +29,7 @@ const Navigation = () => {
               transform: navSelected === "Resume" && "translateX(25px)",
             }}
           >
-            Resume
+            <span>Resume</span>
           </li>
           <li
             className="navigation-item"
@@ -38,7 +38,7 @@ const Navigation = () => {
               transform: navSelected === "Contact" && "translateX(25px)",
             }}
           >
-            Contact
+            <span>Contact</span>
           </li>
         </ul>
       </div>

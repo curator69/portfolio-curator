@@ -6,12 +6,12 @@ import "./Homepage.css";
 import Navigation from "../components/navigation/Navigation";
 import Main from "../components/main/Main";
 
-const Homepage = () => {
+const Homepage = ({ mainSlider }) => {
   return (
     <Fragment>
       <div className="content-wrapper">
         <Navigation />
-        {/* <Main /> */}
+        <Main mainSlider={mainSlider} />
       </div>
     </Fragment>
   );

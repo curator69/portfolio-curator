@@ -1,4 +1,29 @@
 .main-wrapper {
-  min-height: 100vh;
-  background-color: yellow;
+  width: 100%;
+  min-height: 110dvh;
+  height: auto;
+  padding-top: 8rem;
+  padding-left: 30px;
+  background-image: linear-gradient(
+    to right top,
+    #8c3e95,
+    #7c499a,
+    #6c519c,
+    #5e589b,
+    #525d98,
+    #525d98,
+    #525d98,
+    #525d98,
+    #5e589b,
+    #6c519c,
+    #7c499a,
+    #8c3e95
+  );
+
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 0;
+  transition: top 0.7s ease, left 0.7s ease, border-top-left-radius 0.7s ease;
 }

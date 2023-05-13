@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 import "./App.css";
 
@@ -6,10 +6,17 @@ import "./App.css";
 import Homepage from "./pages/Homepage";
 
 function App() {
+  const [mainSlider, setMainSlider] = useState(false);
   return (
     <Fragment>
-      <img src="/public/icons/plus-icon.svg" className="navigation-icon" />
-      <Homepage />
+      <img
+        src="/icons/plus-icon.svg"
+        onClick={() => setMainSlider(!mainSlider)}
+        className="navigation-icon"
+        style={{ transform: mainSlider && "rotate(135deg)" }}
+      />
+
+      <Homepage mainSlider={mainSlider} />
     </Fragment>
   );
 }

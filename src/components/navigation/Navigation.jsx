@@ -1,11 +1,51 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Navigation.css";
 
 const Navigation = () => {
   const [navSelected, setNavSelected] = useState("");
 
+  useEffect(() => {
+    const navigationWrapper =
+      document.getElementById("navigation-wrapper").classList;
+
+    const classHandler = (value) => {
+      navigationWrapper.forEach((classEl) => {
+        if (classEl !== "navigation-wrapper") {
+          navigationWrapper.remove(classEl);
+          navigationWrapper.add(value);
+        }
+      });
+    };
+
+    if (navSelected === "Home" || navSelected === "") {
+      if (navigationWrapper.length === 1) {
+        navigationWrapper.add("Home");
+      } else {
+        classHandler("Home");
+      }
+    } else if (navSelected === "Work") {
+      if (navigationWrapper.length === 1) {
+        navigationWrapper.add("Work");
+      } else {
+        classHandler("Work");
+      }
+    } else if (navSelected === "Resume") {
+      if (navigationWrapper.length === 1) {
+        navigationWrapper.add("Resume");
+      } else {
+        classHandler("Resume");
+      }
+    } else if (navSelected === "Contact") {
+      if (navigationWrapper.length === 1) {
+        navigationWrapper.add("Contact");
+      } else {
+        classHandler("Contact");
+      }
+    }
+  }, [navSelected]);
+
   return (
-    <div className="navigation-wrapper">
+    <div id="navigation-wrapper" className="navigation-wrapper">
       <div className="navigation">
         <ul className="navigation-list">
           <li

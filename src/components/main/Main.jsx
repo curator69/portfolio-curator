@@ -1,5 +1,7 @@
 import "./Main.css";
 
+import Hero from "../hero/Hero";
+
 const Main = ({ mainSlider }) => {
   return (
     <div
@@ -8,10 +10,17 @@ const Main = ({ mainSlider }) => {
       style={{
         top: mainSlider && "50px",
         left: mainSlider && "200px",
-        borderTopLeftRadius: mainSlider && "100px",
+        borderTopLeftRadius: mainSlider && "50px",
       }}
     >
-      Main
+      <div
+        style={{
+          borderTopLeftRadius: mainSlider && "50px",
+        }}
+        className="main-blur"
+      >
+        <Hero />
+      </div>
     </div>
   );
 };

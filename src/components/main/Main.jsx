@@ -12,9 +12,10 @@ const Main = ({ mainSlider }) => {
         top: mainSlider && "50px",
         left: mainSlider && "200px",
         borderTopLeftRadius: mainSlider && "50px",
+        height: "100%",
       }}
     >
-      <Hero />
+      <Hero mainSlider={mainSlider} />
     </div>
   );
 };

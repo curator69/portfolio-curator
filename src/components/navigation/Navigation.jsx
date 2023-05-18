@@ -83,7 +83,7 @@ const Navigation = () => {
         </ul>
 
         <img
-          src="/public/images/287b612d87648274e86c7e12124a2e-unscreen.gif"
+          src="/images/287b612d87648274e86c7e12124a2e-unscreen.gif"
           alt="animated-gif"
           className="animatedGif"
         />

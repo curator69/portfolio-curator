@@ -81,6 +81,12 @@ const Navigation = () => {
             <span>Contact</span>
           </li>
         </ul>
+
+        <img
+          src="/public/images/287b612d87648274e86c7e12124a2e-unscreen.gif"
+          alt="animated-gif"
+          className="animatedGif"
+        />
       </div>
     </div>
   );

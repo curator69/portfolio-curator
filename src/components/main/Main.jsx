@@ -1,5 +1,6 @@
 import "./Main.css";
 
+// Components import
 import Hero from "../hero/Hero";
 
 const Main = ({ mainSlider }) => {
@@ -13,14 +14,7 @@ const Main = ({ mainSlider }) => {
         borderTopLeftRadius: mainSlider && "50px",
       }}
     >
-      <div
-        style={{
-          borderTopLeftRadius: mainSlider && "50px",
-        }}
-        className="main-blur"
-      >
-        <Hero />
-      </div>
+      <Hero />
     </div>
   );
 };

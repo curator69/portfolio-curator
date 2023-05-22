@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import "./Hero.css";
 
 const Hero = ({ mainSlider }) => {
@@ -12,24 +11,6 @@ const Hero = ({ mainSlider }) => {
     "হ্যালো",
   ];
 
-  let currentIndex = 0;
-  const helloSpan = document.querySelector(
-    ".text-section-wrapper span:first-child"
-  );
-
-  function updateHello() {
-    helloSpan.textContent = helloArr[currentIndex];
-    currentIndex = (currentIndex + 1) % helloArr.length; // Wrap around to the beginning of the array
-  }
-
-  useEffect(() => {
-    // Initial update
-    // updateHello();
-
-    // Update hello every 2 seconds
-    setInterval(updateHello, 2000);
-  }, [currentIndex]);
-
   return (
     <div
       className="hero-wrapper"
@@ -41,7 +22,13 @@ const Hero = ({ mainSlider }) => {
             <span className="hello-text">Hello</span>,
           </div>
           <br />
-          <span className="main-name-wrapper">My name is Rushikesh</span>
+          <span className="main-name-wrapper">
+            My name is <code>Rushikesh</code>
+          </span>
+          <br />
+          <span className="job-title">
+            Your friendly neighbourhood front-end developer!
+          </span>
         </div>
       </div>
       <div className="image-section"></div>

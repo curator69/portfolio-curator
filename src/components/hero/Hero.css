@@ -13,6 +13,7 @@
   display: flex;
 
   transition: border-top-left-radius 0.7s ease;
+  overflow: auto;
 }
 
 .text-section {
@@ -41,7 +42,7 @@
 }
 
 .main-name-wrapper {
-  font-size: 4rem;
+  font-size: 2.8rem;
 }
 
 .image-section {
@@ -49,4 +50,30 @@
 
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+code {
+  font-size: 5rem;
+}
+
+.job-title {
+  font-size: 2rem;
+  font-family: monospace;
+}
+
+@media (width < 1000px) {
+  .hero-wrapper {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .text-section {
+    width: 100%;
+    height: 60%;
+  }
+
+  .image-section {
+    width: 100%;
+    height: 40%;
+  }
 }

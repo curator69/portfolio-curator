@@ -27,53 +27,51 @@
   border-bottom-left-radius: 10px;
 
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: left;
   justify-content: center;
-  padding: 20px;
-}
+  padding: 50px;
 
-.text-section-wrapper {
-  width: 100%;
-  height: 100%;
-}
-
-.hello-text-wrapper {
-  font-size: 9rem;
-}
-
-.main-name-wrapper {
-  font-size: 2.8rem;
-}
-
-.image-section {
-  width: 40%;
-
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-code {
-  font-size: 5rem;
-}
-
-.job-title {
   font-size: 2rem;
-  font-family: monospace;
 }
 
-@media (width < 1000px) {
-  .hero-wrapper {
-    flex-direction: column;
-    height: 100%;
-  }
+.hello-word-wrapper {
+  display: flex;
+}
 
-  .text-section {
-    width: 100%;
-    height: 60%;
-  }
+.hello-word {
+  font-size: 5rem;
+  display: flex;
+  font-weight: bolder;
+}
 
-  .image-section {
-    width: 100%;
-    height: 40%;
-  }
+.hello-word:hover {
+  text-decoration: underline;
+}
+
+.hii-emoji {
+  font-size: 4rem;
+  align-self: flex-start;
+}
+
+.name-wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.name {
+  padding-bottom: 1px;
+}
+
+.actual-name {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.description {
+  font-weight: 100 !important;
+  font-family: "Permanent Marker", cursive;
+  filter: drop-shadow(12px 8px 14px #000);
 }

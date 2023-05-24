@@ -17,18 +17,16 @@ const Hero = ({ mainSlider }) => {
       style={{ borderTopLeftRadius: mainSlider && "50px" }}
     >
       <div className="text-section">
-        <div className="text-section-wrapper">
-          <div className="hello-text-wrapper">
-            <span className="hello-text">Hello</span>,
-          </div>
-          <br />
-          <span className="main-name-wrapper">
-            My name is <code>Rushikesh</code>
-          </span>
-          <br />
-          <span className="job-title">
-            Your friendly neighbourhood front-end developer!
-          </span>
+        <div className="hello-word-wrapper">
+          <div className="hello-word">{helloArr[0]},</div>
+          <span className="hii-emoji">👋</span>
+        </div>
+        <div className="name-wrapper">
+          <div className="name">My name is</div>
+          <div className="actual-name">Rushikesh</div>
+        </div>
+        <div className="description">
+          Your friendly neighbourhood front-end developer!
         </div>
       </div>
       <div className="image-section"></div>

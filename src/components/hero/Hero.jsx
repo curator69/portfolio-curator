@@ -16,19 +16,7 @@ const Hero = ({ mainSlider }) => {
       className="hero-wrapper"
       style={{ borderTopLeftRadius: mainSlider && "50px" }}
     >
-      <div className="text-section">
-        <div className="hello-word-wrapper">
-          <div className="hello-word">{helloArr[0]},</div>
-          <span className="hii-emoji">👋</span>
-        </div>
-        <div className="name-wrapper">
-          <div className="name">My name is</div>
-          <div className="actual-name">Rushikesh</div>
-        </div>
-        <div className="description">
-          Your friendly neighbourhood front-end developer!
-        </div>
-      </div>
+      <div className="text-section"></div>
       <div className="image-section"></div>
     </div>
   );

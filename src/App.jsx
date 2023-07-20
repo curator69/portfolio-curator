@@ -4,18 +4,13 @@ import "./App.css";
 
 // pages import
 import Homepage from "./pages/Homepage";
+import Hambuger from "./components/hambuger/Hambuger";
 
 function App() {
   const [mainSlider, setMainSlider] = useState(false);
   return (
     <Fragment>
-      <img
-        src="/icons/plus-icon.svg"
-        onClick={() => setMainSlider(!mainSlider)}
-        className="navigation-icon"
-        style={{ transform: mainSlider && "rotate(135deg)" }}
-      />
-
+      <Hambuger mainSlider={mainSlider} setMainSlider={setMainSlider} />
       <Homepage mainSlider={mainSlider} />
     </Fragment>
   );

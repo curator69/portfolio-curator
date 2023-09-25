@@ -16,8 +16,6 @@ const Hero = ({ mainSlider }) => {
       className="hero-wrapper"
       style={{ borderTopLeftRadius: mainSlider && "50px" }}
     >
-      <div className="text-section"></div>
-      <div className="image-section"></div>
     </div>
   );
 };

@@ -77,11 +77,11 @@
   height: 4px;
   width: 100%;
   border-radius: 10px;
-  background: #000000;
+  background: white;
 }
 
 .line {
-  color: white;
+  color: black;
 }
 
 .nav-container .hamburger-lines .line1 {

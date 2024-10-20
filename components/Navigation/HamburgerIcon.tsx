@@ -13,13 +13,13 @@ const HamburgerIcon = ({
         <input className="checkbox" type="checkbox" name="" id="" />
         <div className="hamburger-lines">
           <span
-            className={`line line1 ${mainSlider ? "!bg-white" : "!bg-black"}`}
+            className={`line line1 ${mainSlider ? "!bg-black" : "!bg-white"}`}
           ></span>
           <span
-            className={`line line2 ${mainSlider ? "!bg-white" : "!bg-black"}`}
+            className={`line line2 ${mainSlider ? "!bg-black" : "!bg-white"}`}
           ></span>
           <span
-            className={`line line3 ${mainSlider ? "!bg-white" : "!bg-black"}`}
+            className={`line line3 ${mainSlider ? "!bg-black" : "!bg-white"}`}
           ></span>
         </div>
       </div>

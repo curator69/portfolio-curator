@@ -1,4 +1,4 @@
-import "./Main.css";
+import "./Content.css";
 
 const Content = ({ mainSlider }: { mainSlider: boolean }) => {
   return (
@@ -7,8 +7,8 @@ const Content = ({ mainSlider }: { mainSlider: boolean }) => {
       id="main-wrapper"
       style={{
         top: mainSlider ? "50px" : 0,
-        left: mainSlider ? "200px" : 0,
-        borderTopLeftRadius: mainSlider ? "50px" : 0,
+        right: mainSlider ? "200px" : 0,
+        borderTopRightRadius: mainSlider ? "50px" : 0,
         height: "100%",
       }}
     >

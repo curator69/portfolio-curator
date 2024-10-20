@@ -8,8 +8,6 @@ import Navigation from "../Navigation/Navigation";
 const Main = () => {
   const [mainSlider, setMainSlider] = useState(false);
 
-  console.log(mainSlider);
-
   return (
     <div className="relative">
       <Navigation />

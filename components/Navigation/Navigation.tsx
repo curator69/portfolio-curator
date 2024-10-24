@@ -1,8 +1,10 @@
 import Link from "next/link";
 
+import styles from "./Navigation.module.scss";
+
 const Navigation = () => {
   return (
-    <div className="absolute z-10 bg-[#B9B4B1] w-screen h-screen pt-24 pr-4 flex flex-col gap-4 items-end">
+    <div className={styles.wrapper}>
       {links.map((link, index) => (
         <Link href={link.href} key={index} className="navigation-link">
           {link.name}

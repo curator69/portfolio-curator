@@ -1,3 +1,4 @@
+import Home from "../home/Home";
 import "./Content.css";
 
 const Content = ({ mainSlider }: { mainSlider: boolean }) => {
@@ -12,7 +13,7 @@ const Content = ({ mainSlider }: { mainSlider: boolean }) => {
         height: "100%",
       }}
     >
-      <div>content</div>
+      <Home />
     </div>
   );
 };

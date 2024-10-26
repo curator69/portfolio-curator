@@ -18,7 +18,7 @@ const Home = () => {
     <div className="relative w-full h-full overflow-hidden bg-slate-900 flex flex-col gap-10 items-center justify-center rounded-lg">
       <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
-      {/* <Boxes /> */}
+      <Boxes />
       <article className="flex flex-col items-center justify-center w-full h-full">
         <AnimatedName />
         <AnimatedHeading />
@@ -43,8 +43,15 @@ const AnimatedHeading = () => {
     <i
       className={`${kavivanar.className} ${styles.animatedHeadingWrapper} text-[2rem] font-light z-30 group relative text-center w-full`}
     >
-      <span className="relative inline-block cursor-default">
-        A Full-stack developer from India.
+      <span className="relative inline-block font-medium">
+        A Full-stack developer from{" "}
+        <Link
+          target="_blank"
+          href="https://www.google.com/maps/place/Mumbai,+Maharashtra/@19.0821775,72.716378,70857m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3be7c6306644edc1:0x5da4ed8f8d648c69!8m2!3d19.0759837!4d72.8776559!16zL20vMDR2bXA?entry=ttu&g_ep=EgoyMDI0MTAyMy4wIKXMDSoASAFQAw%3D%3D"
+          className="text-blue-400 font-black"
+        >
+          Mumbai, India.
+        </Link>
         <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-current transition-all duration-700 group-hover:w-full"></span>
       </span>
     </i>

@@ -1,4 +1,4 @@
-import "./Hambuger.css";
+import './Hambuger.css';
 
 const HamburgerIcon = ({
   mainSlider,
@@ -8,18 +8,24 @@ const HamburgerIcon = ({
   setMainSlider: (value: boolean) => void;
 }) => {
   return (
-    <div className="navbar" onClick={() => setMainSlider(!mainSlider)}>
-      <div className="container nav-container">
-        <input className="checkbox" type="checkbox" name="" id="" />
-        <div className="hamburger-lines">
+    <div className='navbar'>
+      <div className='container nav-container'>
+        <input
+          className='checkbox'
+          type='checkbox'
+          name=''
+          id=''
+          onClick={() => setMainSlider(!mainSlider)}
+        />
+        <div className='hamburger-lines'>
           <span
-            className={`line line1 ${mainSlider ? "!bg-black" : "!bg-white"}`}
+            className={`line line1 ${mainSlider ? '!bg-black' : '!bg-white'}`}
           ></span>
           <span
-            className={`line line2 ${mainSlider ? "!bg-black" : "!bg-white"}`}
+            className={`line line2 ${mainSlider ? '!bg-black' : '!bg-white'}`}
           ></span>
           <span
-            className={`line line3 ${mainSlider ? "!bg-black" : "!bg-white"}`}
+            className={`line line3 ${mainSlider ? '!bg-black' : '!bg-white'}`}
           ></span>
         </div>
       </div>

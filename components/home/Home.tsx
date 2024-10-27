@@ -89,7 +89,7 @@ const Clock = () => {
   if (!time) return null;
 
   return (
-    <div className='fixed bottom-8 left-8 backdrop-blur-md bg-white/10 px-6 py-3 rounded-xl border border-white/20 shadow-lg'>
+    <div className='absolute bottom-8 left-8 backdrop-blur-md bg-white/10 px-6 py-3 rounded-xl border border-white/20 shadow-lg'>
       <p className='font-mono text-2xl text-white tracking-wider'>
         {time.toLocaleTimeString('en-US', {
           hour12: false,

@@ -29,11 +29,10 @@
 }
 
 .animatedNameWrapper {
-  width: 100%;
+  width: fit-content;
   position: relative;
   padding: 4em;
   filter: contrast(20);
-  overflow: hidden;
   text-align: center;
 
   h1 {

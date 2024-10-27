@@ -41,7 +41,7 @@ const AnimatedName = () => {
 const AnimatedHeading = () => {
   return (
     <i
-      className={`${kavivanar.className} ${styles.animatedHeadingWrapper} text-[2rem] font-light z-30 group relative text-center w-full`}
+      className={`${kavivanar.className} ${styles.animatedHeadingWrapper} text-[2rem] font-light z-30 group relative text-center`}
     >
       <span className="relative inline-block font-medium">
         A Full-stack developer from{" "}

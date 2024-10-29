@@ -1,31 +1,42 @@
-import './Hambuger.css';
+import "./Hambuger.css";
 
 const HamburgerIcon = ({
-  mainSlider,
-  setMainSlider,
+  slider,
+  onClick,
+  setOpenedBy,
 }: {
-  mainSlider: boolean;
-  setMainSlider: (value: boolean) => void;
+  slider: "navigation" | "socials" | null;
+  onClick: () => void;
+  setOpenedBy: () => void;
 }) => {
+  if (slider === "socials") return null;
+
   return (
-    <div className='navbar'>
-      <div className='container nav-container'>
+    <div className="navbar">
+      <div className="container nav-container">
         <input
-          className='checkbox'
-          type='checkbox'
-          name=''
-          id=''
-          onClick={() => setMainSlider(!mainSlider)}
+          className="checkbox"
+          type="checkbox"
+          onClick={() => {
+            onClick();
+            setOpenedBy();
+          }}
         />
-        <div className='hamburger-lines'>
+        <div className="hamburger-lines">
           <span
-            className={`line line1 ${mainSlider ? '!bg-black' : '!bg-white'}`}
+            className={`line line1 ${
+              slider === "navigation" ? "!bg-black" : "!bg-white"
+            }`}
           ></span>
           <span
-            className={`line line2 ${mainSlider ? '!bg-black' : '!bg-white'}`}
+            className={`line line2 ${
+              slider === "navigation" ? "!bg-black" : "!bg-white"
+            }`}
           ></span>
           <span
-            className={`line line3 ${mainSlider ? '!bg-black' : '!bg-white'}`}
+            className={`line line3 ${
+              slider === "navigation" ? "!bg-black" : "!bg-white"
+            }`}
           ></span>
         </div>
       </div>

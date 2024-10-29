@@ -63,8 +63,9 @@ $bg-height: 50px;
   padding-right: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 2rem;
 
   /* img size is 50x50 */
   background: url($bg-url) repeat 0 0;
@@ -77,4 +78,16 @@ $bg-height: 50px;
   -moz-animation-timing-function: linear;
   -o-animation-timing-function: linear;
   animation-timing-function: linear;
+
+  .navigationLinksWrapper,
+  .socialLinksWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+
+  .socialLinksWrapper {
+    margin-top: auto;
+  }
 }

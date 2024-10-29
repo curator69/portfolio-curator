@@ -9,11 +9,12 @@ const Main = () => {
   const [mainSlider, setMainSlider] = useState(false);
 
   return (
-    <div className="relative">
-      <Navigation />
-      <HamburgerIcon mainSlider={mainSlider} setMainSlider={setMainSlider} />
-      <Content mainSlider={mainSlider} />
-    </div>
+    <></>
+    // <div className="relative">
+    //   <Navigation />
+    //   <HamburgerIcon mainSlider={mainSlider} setMainSlider={setMainSlider} />
+    //   <Content mainSlider={mainSlider} />
+    // </div>
   );
 };
 

@@ -6,8 +6,8 @@ import "./globals.css";
 import LenisScroll from "./LenisScroll";
 import Navigation from "@/components/Navigation/Navigation";
 import HamburgerIcon from "@/components/Navigation/HamburgerIcon";
-import { useState } from "react";
 import Content from "@/components/Content/Content";
+import { useSlider } from "@/store/useSlider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,15 +16,12 @@ const inter = Inter({ subsets: ["latin"] });
 //   description: "Rushikesh's Portfolio",
 // };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+type Props = {
   children: React.ReactNode;
-}>) {
-  const [slider, setSlider] = useState<"navigation" | "socials" | null>(null);
-  const [openedBy, setOpenedBy] = useState<"navigation" | "socials">(
-    "navigation"
-  );
+};
+
+export default function RootLayout({ children }: Props) {
+  const { slider, setSlider, openedBy, setOpenedBy } = useSlider();
 
   return (
     <html lang="en">
@@ -39,14 +36,8 @@ export default function RootLayout({
             onClick={() => setSlider(slider === null ? "navigation" : null)}
             setOpenedBy={() => setOpenedBy("navigation")}
           />
-          <Content
-            slider={slider}
-            setSlider={() => setSlider(slider === null ? "socials" : null)}
-            setOpenedBy={() => setOpenedBy("socials")}
-          />
+          <Content slider={slider}>{children}</Content>
         </div>
-
-        {children}
       </body>
     </html>
   );

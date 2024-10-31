@@ -1,8 +1,13 @@
 import Link from "next/link";
 
 import styles from "./Navigation.module.scss";
+import { OpenedBy } from "@/store/useSlider";
 
-const Navigation = ({ openedBy }: { openedBy: "navigation" | "socials" }) => {
+type Props = {
+  openedBy: OpenedBy;
+};
+
+const Navigation = ({ openedBy }: Props) => {
   return (
     <div
       className={`${styles.wrapper} ${
@@ -17,11 +22,7 @@ const Navigation = ({ openedBy }: { openedBy: "navigation" | "socials" }) => {
 
 export default Navigation;
 
-const NavigationLinks = ({
-  openedBy,
-}: {
-  openedBy: "navigation" | "socials";
-}) => {
+const NavigationLinks = ({ openedBy }: { openedBy: OpenedBy }) => {
   if (openedBy === "socials") return null;
 
   return (
@@ -35,7 +36,7 @@ const NavigationLinks = ({
   );
 };
 
-const SocialLinks = ({ openedBy }: { openedBy: "navigation" | "socials" }) => {
+const SocialLinks = ({ openedBy }: { openedBy: OpenedBy }) => {
   if (openedBy === "navigation") return null;
 
   return (

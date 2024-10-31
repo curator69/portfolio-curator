@@ -58,12 +58,11 @@ $bg-height: 50px;
   position: absolute;
   z-index: 10;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   padding-top: 6rem;
   padding-right: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 2rem;
   padding-bottom: 2rem;
 
@@ -88,6 +87,5 @@ $bg-height: 50px;
   }
 
   .socialLinksWrapper {
-    margin-top: auto;
   }
 }

@@ -4,7 +4,11 @@ import styles from "./Navigation.module.scss";
 
 const Navigation = ({ openedBy }: { openedBy: "navigation" | "socials" }) => {
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={`${styles.wrapper} ${
+        openedBy === "navigation" ? "justify-start" : "justify-end"
+      }`}
+    >
       <NavigationLinks openedBy={openedBy} />
       <SocialLinks openedBy={openedBy} />
     </div>

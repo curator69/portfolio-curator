@@ -1,18 +1,12 @@
-import { Boxes } from "../ui/background-boxes";
-import { Kalam, Kavivanar } from "next/font/google";
+import { Alumni_Sans } from "next/font/google";
 import styles from "./Home.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import SocialsIcon from "../Navigation/SocialsIcon";
 
-const kalam = Kalam({
-  weight: "700",
-  subsets: ["latin"],
-});
-
-const kavivanar = Kavivanar({
-  weight: "400",
-  subsets: ["latin"],
+const AlumniSans = Alumni_Sans({
+  weight: "500",
+  subsets: ["latin-ext"],
 });
 
 const Home = () => {
@@ -20,7 +14,6 @@ const Home = () => {
     <div className="relative w-full h-full overflow-hidden bg-slate-900 flex flex-col gap-10 items-center justify-center rounded-lg">
       <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
-      <Boxes />
       <article className="flex flex-col items-center justify-center w-full h-full">
         <AnimatedName />
         <AnimatedHeading />
@@ -37,7 +30,7 @@ export default Home;
 
 const AnimatedName = () => {
   return (
-    <div className={`${styles.animatedNameWrapper} ${kalam.className}`}>
+    <div className={styles.animatedNameWrapper}>
       <h1>RUSHIKESH</h1>
     </div>
   );
@@ -46,7 +39,7 @@ const AnimatedName = () => {
 const AnimatedHeading = () => {
   return (
     <i
-      className={`${kavivanar.className} ${styles.animatedHeadingWrapper} text-[2rem] font-light z-30 group relative text-center`}
+      className={`${styles.animatedHeadingWrapper} ${AlumniSans.className} text-[2rem] font-light z-30 group relative text-center`}
     >
       <span className="relative inline-block font-medium">
         A Full-stack developer from{" "}

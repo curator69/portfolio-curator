@@ -42,7 +42,12 @@ const SocialLinks = ({ openedBy }: { openedBy: OpenedBy }) => {
   return (
     <div className={styles.socialLinksWrapper}>
       {socials.map((link, index) => (
-        <Link href={link.href} key={index} className="navigation-link">
+        <Link
+          href={link.href}
+          target="_blank"
+          key={index}
+          className="navigation-link"
+        >
           {link.name}
         </Link>
       ))}

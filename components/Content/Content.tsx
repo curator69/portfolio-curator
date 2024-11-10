@@ -1,5 +1,5 @@
 import { Slider } from "@/store/useSlider";
-import "./Content.css";
+import styles from "./Content.module.scss";
 
 type Props = {
   children: React.ReactNode;
@@ -9,8 +9,7 @@ type Props = {
 const Content = ({ children, slider }: Props) => {
   return (
     <div
-      className="main-wrapper"
-      id="main-wrapper"
+      className={styles.mainWrapper}
       style={{
         top: !slider ? 0 : slider === "navigation" ? "50px" : "-50px",
         right: slider ? "200px" : 0,

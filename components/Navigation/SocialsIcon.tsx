@@ -1,14 +1,10 @@
 import styles from "./SocialsIcon.module.scss";
 
-const SocialsIcon = ({
-  slider,
-  setSlider,
-  setOpenedBy,
-}: {
-  slider: "navigation" | "socials" | null;
-  setSlider: () => void;
-  setOpenedBy: () => void;
-}) => {
+import { useSlider } from "@/store/useSlider";
+
+const SocialsIcon = () => {
+  const { slider, setSlider, setOpenedBy } = useSlider();
+
   if (slider === "navigation") return null;
 
   return (
@@ -16,8 +12,8 @@ const SocialsIcon = ({
       <div
         className={styles.circlesWrapper}
         onClick={() => {
-          setSlider();
-          setOpenedBy();
+          setSlider(slider === "socials" ? null : "socials");
+          setOpenedBy("socials");
         }}
       >
         <div className={styles.circle_1}></div>

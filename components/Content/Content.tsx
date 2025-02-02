@@ -1,19 +1,15 @@
-import Home from "../home/Home";
-import "./Content.css";
+import { Slider } from "@/store/useSlider";
+import styles from "./Content.module.scss";
 
-const Content = ({
-  slider,
-  setSlider,
-  setOpenedBy,
-}: {
-  slider: "navigation" | "socials" | null;
-  setSlider: () => void;
-  setOpenedBy: () => void;
-}) => {
+type Props = {
+  children: React.ReactNode;
+  slider: Slider;
+};
+
+const Content = ({ children, slider }: Props) => {
   return (
     <div
-      className="main-wrapper"
-      id="main-wrapper"
+      className={styles.mainWrapper}
       style={{
         top: !slider ? 0 : slider === "navigation" ? "50px" : "-50px",
         right: slider ? "200px" : 0,
@@ -30,7 +26,7 @@ const Content = ({
         height: "100%",
       }}
     >
-      <Home slider={slider} setSlider={setSlider} setOpenedBy={setOpenedBy} />
+      {children}
     </div>
   );
 };

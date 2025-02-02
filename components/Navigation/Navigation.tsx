@@ -1,10 +1,19 @@
 import Link from "next/link";
 
 import styles from "./Navigation.module.scss";
+import { OpenedBy } from "@/store/useSlider";
 
-const Navigation = ({ openedBy }: { openedBy: "navigation" | "socials" }) => {
+type Props = {
+  openedBy: OpenedBy;
+};
+
+const Navigation = ({ openedBy }: Props) => {
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={`${styles.wrapper} ${
+        openedBy === "navigation" ? "justify-start" : "justify-end"
+      }`}
+    >
       <NavigationLinks openedBy={openedBy} />
       <SocialLinks openedBy={openedBy} />
     </div>
@@ -13,11 +22,7 @@ const Navigation = ({ openedBy }: { openedBy: "navigation" | "socials" }) => {
 
 export default Navigation;
 
-const NavigationLinks = ({
-  openedBy,
-}: {
-  openedBy: "navigation" | "socials";
-}) => {
+const NavigationLinks = ({ openedBy }: { openedBy: OpenedBy }) => {
   if (openedBy === "socials") return null;
 
   return (
@@ -31,13 +36,18 @@ const NavigationLinks = ({
   );
 };
 
-const SocialLinks = ({ openedBy }: { openedBy: "navigation" | "socials" }) => {
+const SocialLinks = ({ openedBy }: { openedBy: OpenedBy }) => {
   if (openedBy === "navigation") return null;
 
   return (
     <div className={styles.socialLinksWrapper}>
       {socials.map((link, index) => (
-        <Link href={link.href} key={index} className="navigation-link">
+        <Link
+          href={link.href}
+          target="_blank"
+          key={index}
+          className="navigation-link"
+        >
           {link.name}
         </Link>
       ))}

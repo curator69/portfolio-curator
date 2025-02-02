@@ -1,6 +1,8 @@
-import Main from "@/components/Main/Main";
+"use client";
 
-export default function Home() {
+import Home from "@/components/home/Home";
+
+export default function Page() {
   // TODO: refactor the architecture of the app
-  return <Main />;
+  return <Home />;
 }

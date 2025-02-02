@@ -1,14 +1,13 @@
+import { Slider } from "@/store/useSlider";
 import "./Hambuger.css";
 
-const HamburgerIcon = ({
-  slider,
-  onClick,
-  setOpenedBy,
-}: {
-  slider: "navigation" | "socials" | null;
+type Props = {
+  slider: Slider;
   onClick: () => void;
   setOpenedBy: () => void;
-}) => {
+};
+
+const HamburgerIcon = ({ slider, onClick, setOpenedBy }: Props) => {
   if (slider === "socials") return null;
 
   return (

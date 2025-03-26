@@ -1,5 +1,5 @@
 import { Slider } from "@/store/useSlider";
-import "./Hambuger.css";
+import "./Hamburger.css";
 
 type Props = {
   slider: Slider;

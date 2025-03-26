@@ -1,20 +1,11 @@
 "use client";
 
-import { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import LenisScroll from "./LenisScroll";
 import Navigation from "@/components/Navigation/Navigation";
 import HamburgerIcon from "@/components/Navigation/HamburgerIcon";
 import Content from "@/components/Content/Content";
 import { useSlider } from "@/store/useSlider";
-
-const inter = Inter({ subsets: ["latin"] });
-
-// export const metadata: Metadata = {
-//   title: 'Rushikesh',
-//   description: "Rushikesh's Portfolio",
-// };
 
 type Props = {
   children: React.ReactNode;
@@ -25,7 +16,13 @@ export default function RootLayout({ children }: Props) {
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+        <style>
+          {/* @import
+          url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap'); */}
+        </style>
+      </head>
+      <body>
         <div className="relative">
           {/* For smooth scroll */}
           <LenisScroll />

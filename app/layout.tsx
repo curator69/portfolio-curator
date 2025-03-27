@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation/Navigation";
 import HamburgerIcon from "@/components/Navigation/HamburgerIcon";
 import Content from "@/components/Content/Content";
 import { useSlider } from "@/store/useSlider";
+import { GeistMono } from "geist/font/mono";
 
 type Props = {
   children: React.ReactNode;
@@ -15,12 +16,9 @@ export default function RootLayout({ children }: Props) {
   const { slider, setSlider, openedBy, setOpenedBy } = useSlider();
 
   return (
-    <html lang="en">
+    <html lang="en" className={GeistMono.className}>
       <head>
-        <style>
-          {/* @import
-          url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap'); */}
-        </style>
+        <style></style>
       </head>
       <body>
         <div className="relative">

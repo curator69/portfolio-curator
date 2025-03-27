@@ -1,10 +1,21 @@
 import Link from "next/link";
+import { Orbitron } from "next/font/google";
+import styles from "./Home.module.scss";
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: "700",
+});
 
 const Home = () => {
   return (
     <div className="relative w-full h-full overflow-hidden bg-black flex flex-col gap-10 items-center justify-center rounded-lg">
       <article className="flex flex-col gap-2 items-center justify-center w-full h-full">
-        <h1 className="text-[8rem] uppercase leading-none">Rushikesh</h1>
+        <h1
+          className={`text-[8rem] uppercase leading-none bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent font-extrabold drop-shadow-md ${orbitron.className}`}
+        >
+          Rushikesh
+        </h1>
         <span className="relative text-[2rem] font-medium leading-none">
           A Full-stack developer from{" "}
           <Link

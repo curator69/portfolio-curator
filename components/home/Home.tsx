@@ -1,34 +1,55 @@
-import Link from "next/link";
-import { Orbitron } from "next/font/google";
-import styles from "./Home.module.scss";
-
-const orbitron = Orbitron({
-  subsets: ["latin"],
-  weight: "700",
-});
+import { useState, useEffect } from "react";
+import CrypticName from "./CrypticName";
+import SubText from "./SubText";
+import AnimatedButton from "./AnimatedButton";
 
 const Home = () => {
+  const fullTitle = "Rushikesh";
+  const fullSubtext = "A Full-stack developer from Mumbai, India.";
+  const [startSubtext, setStartSubtext] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+
+  // Start subtext animation after title is expected to finish
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setStartSubtext(true);
+    }, fullTitle.length * 150 + 500); // Approximate time for name to finish + buffer
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  // Handler for when subtext animation completes
+  const handleSubtextComplete = () => {
+    // Show button after subtext animation is complete
+    setTimeout(() => {
+      setShowButton(true);
+    }, 500); // Small delay before showing button
+  };
+
   return (
     <div className="relative w-full h-full overflow-hidden bg-black flex flex-col gap-10 items-center justify-center rounded-lg">
       <article className="flex flex-col gap-2 items-center justify-center w-full h-full">
-        <h1
-          className={`text-[8rem] uppercase leading-none bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent font-extrabold drop-shadow-md ${orbitron.className}`}
-        >
-          Rushikesh
-        </h1>
-        <span className="relative text-[2rem] font-medium leading-none">
-          A Full-stack developer from{" "}
-          <Link
-            target="_blank"
-            href="https://www.google.com/maps/place/Mumbai,+Maharashtra/@19.0821775,72.716378,70857m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3be7c6306644edc1:0x5da4ed8f8d648c69!8m2!3d19.0759837!4d72.8776559!16zL20vMDR2bXA?entry=ttu&g_ep=EgoyMDI0MTAyMy4wIKXMDSoASAFQAw%3D%3D"
-            className="hover:underline underline-offset-2"
-          >
-            Mumbai, India.
-          </Link>
-        </span>
-        <Link href="/about" className="border rounded-full p-2 px-4 mt-6">
-          About me
-        </Link>
+        {/* Cryptic Name Component */}
+        <CrypticName
+          text={fullTitle}
+          className="text-[8rem] uppercase leading-none bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent font-extrabold drop-shadow-md"
+        />
+
+        {/* Subtext Component */}
+        <SubText
+          text={fullSubtext}
+          startAnimation={startSubtext}
+          onComplete={handleSubtextComplete}
+          className="text-[2rem] font-medium leading-none"
+        />
+
+        {/* Button Component */}
+        <AnimatedButton
+          href="/about"
+          text="About me"
+          show={showButton}
+          className="border rounded-full p-2 px-4 mt-6"
+        />
       </article>
     </div>
   );

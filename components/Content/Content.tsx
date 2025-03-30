@@ -23,7 +23,7 @@ const Content = ({ children, slider }: Props) => {
           : slider === "socials"
           ? "50px"
           : "0px",
-        height: "100%",
+        // height: "100%",
       }}
     >
       {children}

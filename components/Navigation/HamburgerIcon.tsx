@@ -1,5 +1,6 @@
 import { Slider } from "@/store/useSlider";
 import "./Hamburger.css";
+import { useRef, useEffect } from "react";
 
 type Props = {
   slider: Slider;
@@ -8,12 +9,21 @@ type Props = {
 };
 
 const HamburgerIcon = ({ slider, onClick, setOpenedBy }: Props) => {
+  const checkboxRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (checkboxRef.current) {
+      checkboxRef.current.checked = slider === "navigation";
+    }
+  }, [slider]);
+
   if (slider === "socials") return null;
 
   return (
     <div className="navbar">
       <div className="container nav-container">
         <input
+          ref={checkboxRef}
           className="checkbox"
           type="checkbox"
           onClick={() => {

@@ -1,34 +1,51 @@
 import Link from "next/link";
 
 import styles from "./Navigation.module.scss";
-import { OpenedBy } from "@/store/useSlider";
+import { OpenedBy, useSlider } from "@/store/useSlider";
 
 type Props = {
   openedBy: OpenedBy;
 };
 
 const Navigation = ({ openedBy }: Props) => {
+  const { setSlider } = useSlider();
+
+  const handleLinkClick = () => {
+    setSlider(null);
+  };
+
   return (
     <div
       className={`${styles.wrapper} ${
         openedBy === "navigation" ? "justify-start" : "justify-end"
       }`}
     >
-      <NavigationLinks openedBy={openedBy} />
-      <SocialLinks openedBy={openedBy} />
+      <NavigationLinks openedBy={openedBy} onLinkClick={handleLinkClick} />
+      <SocialLinks openedBy={openedBy} onLinkClick={handleLinkClick} />
     </div>
   );
 };
 
 export default Navigation;
 
-const NavigationLinks = ({ openedBy }: { openedBy: OpenedBy }) => {
+const NavigationLinks = ({
+  openedBy,
+  onLinkClick,
+}: {
+  openedBy: OpenedBy;
+  onLinkClick: () => void;
+}) => {
   if (openedBy === "socials") return null;
 
   return (
     <div className={styles.navigationLinksWrapper}>
       {links.map((link, index) => (
-        <Link href={link.href} key={index} className="navigation-link">
+        <Link
+          href={link.href}
+          key={index}
+          className="navigation-link"
+          onClick={onLinkClick}
+        >
           {link.name}
         </Link>
       ))}
@@ -36,7 +53,13 @@ const NavigationLinks = ({ openedBy }: { openedBy: OpenedBy }) => {
   );
 };
 
-const SocialLinks = ({ openedBy }: { openedBy: OpenedBy }) => {
+const SocialLinks = ({
+  openedBy,
+  onLinkClick,
+}: {
+  openedBy: OpenedBy;
+  onLinkClick: () => void;
+}) => {
   if (openedBy === "navigation") return null;
 
   return (
@@ -47,6 +70,7 @@ const SocialLinks = ({ openedBy }: { openedBy: OpenedBy }) => {
           target="_blank"
           key={index}
           className="navigation-link"
+          onClick={onLinkClick}
         >
           {link.name}
         </Link>

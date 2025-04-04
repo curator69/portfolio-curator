@@ -3,6 +3,12 @@
 import Experience from "@/components/about/Experience";
 import Skills from "@/components/about/Skills";
 
+const Tech = ({ text }: { text: string }) => (
+  <span className="text-emerald-400 hover:underline underline-offset-2">
+    {text}
+  </span>
+);
+
 export default function Page() {
   return (
     <div className="bg-black text-white p-8">
@@ -13,19 +19,21 @@ export default function Page() {
       <div className="mb-16">
         <p className="text-xl mb-6">
           I am a passionate Frontend Engineer with a strong foundation in modern
-          web technologies, specializing in React, Next.js, TypeScript, and
-          Tailwind CSS. With hands-on experience in building scalable,
-          user-centric applications, I'm driven to create responsive and
-          optimized web solutions. I also enjoy diving into full stack
-          development with Node.js and Golang, bringing a well-rounded approach
-          to building web applications.
+          web technologies, specializing in <Tech text="React" />,{" "}
+          <Tech text="Next.js" />, <Tech text="TypeScript" />, and{" "}
+          <Tech text="Tailwind CSS" />. With hands-on experience in building
+          scalable, user-centric applications, I'm driven to create responsive
+          and optimized web solutions. I also enjoy diving into full stack
+          development with <Tech text="Node.js" /> and <Tech text="Golang" />,
+          bringing a well-rounded approach to building web applications.
         </p>
         <p className="text-xl mb-6">
           Beyond frontend development, I have worked extensively with libraries
-          and frameworks such as Vue.js, Nuxt.js, and Three.js, allowing me to
-          bring creativity and functionality into interactive UI designs. My
-          goal is to continuously learn and integrate cutting-edge tools and
-          practices to deliver high-quality, maintainable code.
+          and frameworks such as <Tech text="Vue.js" />, <Tech text="Nuxt.js" />
+          , and <Tech text="Three.js" />, allowing me to bring creativity and
+          functionality into interactive UI designs. My goal is to continuously
+          learn and integrate cutting-edge tools and practices to deliver
+          high-quality, maintainable code.
         </p>
         <p className="text-xl mb-6">
           Always curious and motivated by problem-solving, I thrive in

@@ -27,7 +27,7 @@ const Home = () => {
   };
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-black flex flex-col gap-6 sm:gap-8 md:gap-10 items-center justify-center rounded-lg">
+    <div className="relative w-full h-full overflow-hidden bg-black flex flex-col gap-6 sm:gap-8 md:gap-10 items-center justify-center rounded-lg px-4">
       <article className="flex flex-col gap-1 sm:gap-1.5 md:gap-2 items-center justify-center w-full h-full">
         {/* Cryptic Name Component */}
         <CrypticName
@@ -40,7 +40,7 @@ const Home = () => {
           text={fullSubtext}
           startAnimation={startSubtext}
           onComplete={handleSubtextComplete}
-          className="text-lg sm:text-xl md:text-[2rem] font-medium leading-none"
+          className="text-lg sm:text-xl md:text-[2rem] font-medium leading-none text-center"
         />
 
         {/* Button Component */}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import CrypticName from "./CrypticName";
 import SubText from "./SubText";
 import AnimatedButton from "./AnimatedButton";
+import Monogram from "./Monogram";
 
 const Home = () => {
   const fullTitle = "Rushikesh";
@@ -87,6 +88,11 @@ const Home = () => {
           transform: "translate3d(0, 0, 0)",
         }}
       />
+
+      {/* Monogram in top left */}
+      <div className="absolute top-6 left-6 z-20">
+        <Monogram letter="R" size="md" animated={false} />
+      </div>
 
       <article className="flex flex-col gap-1 sm:gap-1.5 md:gap-2 items-center justify-center w-full h-full z-10">
         {/* Cryptic Name Component */}

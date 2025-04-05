@@ -39,13 +39,12 @@
 
 .nav-container .hamburger-lines .line {
   display: block;
-  height: 3px;
+  height: 2px; /* Thinner lines for a more elegant look */
   width: 100%;
   border-radius: 10px;
   background: white;
-  /* Add transition for background color with same duration as slider */
   transition: transform 0.4s ease-in-out, width 0.4s ease-in-out,
-    background-color 0.3s ease-in-out 0.15s; /* Added delay to sync with slider */
+    background-color 0.3s ease-in-out 0.15s;
 }
 
 .nav-container .hamburger-lines .line1 {
@@ -65,16 +64,23 @@
 /* Hover effects */
 .nav-container:hover .line1 {
   width: 100%;
+  background: #10b981; /* Emerald color on hover */
+}
+
+.nav-container:hover .line2 {
+  background: #10b981; /* Emerald color on hover */
 }
 
 .nav-container:hover .line3 {
   width: 100%;
+  background: #10b981; /* Emerald color on hover */
 }
 
 /* Active state animations */
 .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
   width: 100%;
   transform: rotate(45deg) translate(0px, -1px);
+  background: #10b981 !important; /* Force emerald color when active */
 }
 
 .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
@@ -85,6 +91,7 @@
 .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
   width: 100%;
   transform: rotate(-45deg) translate(0px, 1px);
+  background: #10b981 !important; /* Force emerald color when active */
 }
 
 /* Add a subtle glow effect */
@@ -95,8 +102,8 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0) 70%
+    rgba(16, 185, 129, 0.2) 0%,
+    rgba(16, 185, 129, 0) 70%
   );
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -104,4 +111,21 @@
 
 .nav-container:hover .hamburger-lines::after {
   opacity: 1;
+}
+
+/* Add a pulsing effect to the hamburger when closed */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.nav-container:hover {
+  animation: pulse 1.5s infinite;
 }

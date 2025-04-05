@@ -5,7 +5,7 @@ import AnimatedButton from "./AnimatedButton";
 
 const Home = () => {
   const fullTitle = "Rushikesh";
-  const fullSubtext = "A Full-stack developer from Mumbai, India.";
+  const fullSubtext = "A Software Engineer from Mumbai, India.";
   const [startSubtext, setStartSubtext] = useState(false);
   const [showButton, setShowButton] = useState(false);
 

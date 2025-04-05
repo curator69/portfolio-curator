@@ -15,7 +15,7 @@ const SubText: React.FC<SubTextProps> = ({
   className = "",
 }) => {
   const [displayText, setDisplayText] = useState("");
-  const prefix = "A Full-stack developer from ";
+  const prefix = "A Software Engineer from ";
   const location = "Mumbai, India.";
 
   useEffect(() => {

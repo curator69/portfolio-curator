@@ -3,6 +3,7 @@
 import "./globals.css";
 import Navigation from "@/components/Navigation/Navigation";
 import HamburgerIcon from "@/components/Navigation/HamburgerIcon";
+import SocialButton from "@/components/Navigation/SocialButton";
 import Content from "@/components/Content/Content";
 import { useSlider } from "@/store/useSlider";
 import { GeistMono } from "geist/font/mono";
@@ -26,6 +27,11 @@ export default function RootLayout({ children }: Props) {
             slider={slider}
             onClick={() => setSlider(slider === null ? "navigation" : null)}
             setOpenedBy={() => setOpenedBy("navigation")}
+          />
+          <SocialButton
+            slider={slider}
+            onClick={() => setSlider(slider === null ? "socials" : null)}
+            setOpenedBy={() => setOpenedBy("socials")}
           />
           <Content slider={slider}>{children}</Content>
         </div>

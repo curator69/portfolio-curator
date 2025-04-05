@@ -8,6 +8,9 @@ const Home = () => {
   const fullSubtext = "A Software Engineer from Mumbai, India.";
   const [startSubtext, setStartSubtext] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [currentTime, setCurrentTime] = useState("");
+  const [currentDate, setCurrentDate] = useState("");
 
   // Start subtext animation after title is expected to finish
   useEffect(() => {
@@ -17,6 +20,46 @@ const Home = () => {
 
     return () => clearTimeout(timeout);
   }, []);
+
+  // Mouse following effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  // Digital clock effect - client-side only to avoid hydration errors
+  useEffect(() => {
+    // Set initial time
+    updateTime();
+
+    // Update time every second
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Update time and date in a consistent format
+  const updateTime = () => {
+    const now = new Date();
+
+    // Format time as HH:MM:SS
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    const seconds = now.getSeconds().toString().padStart(2, "0");
+    setCurrentTime(`${hours}:${minutes}:${seconds}`);
+
+    // Format date consistently for both server and client
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    };
+    setCurrentDate(now.toLocaleDateString("en-US", options));
+  };
 
   // Handler for when subtext animation completes
   const handleSubtextComplete = () => {
@@ -33,6 +76,17 @@ const Home = () => {
 
       {/* Subtle glow effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-emerald-900/10 blur-[100px] pointer-events-none"></div>
+
+      {/* Mouse following effect */}
+      <div
+        className="fixed w-40 h-40 rounded-full bg-emerald-500/5 blur-3xl pointer-events-none"
+        style={{
+          left: mousePosition.x - 80,
+          top: mousePosition.y - 80,
+          transition: "transform 0.2s ease-out",
+          transform: "translate3d(0, 0, 0)",
+        }}
+      />
 
       <article className="flex flex-col gap-1 sm:gap-1.5 md:gap-2 items-center justify-center w-full h-full z-10">
         {/* Cryptic Name Component */}
@@ -64,6 +118,20 @@ const Home = () => {
           className="border border-emerald-500/70 rounded-full p-1.5 sm:p-2 px-3 sm:px-4 mt-6 sm:mt-8 md:mt-10 text-sm sm:text-base md:text-lg hover:bg-emerald-500/10 transition-colors duration-300"
         />
       </article>
+
+      {/* Digital Clock - Only rendered client-side */}
+      {currentTime && (
+        <div className="absolute bottom-6 left-6 z-20">
+          <div className="bg-black/30 backdrop-blur-sm border border-emerald-500/20 rounded-lg p-3 shadow-lg shadow-emerald-900/10">
+            <div className="text-emerald-400 font-mono text-xl sm:text-2xl tracking-widest">
+              {currentTime}
+            </div>
+            <div className="text-gray-400 text-xs mt-1 text-center">
+              {currentDate}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

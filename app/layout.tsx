@@ -1,7 +1,6 @@
 "use client";
 
 import "./globals.css";
-import LenisScroll from "./LenisScroll";
 import Navigation from "@/components/Navigation/Navigation";
 import HamburgerIcon from "@/components/Navigation/HamburgerIcon";
 import Content from "@/components/Content/Content";
@@ -22,9 +21,6 @@ export default function RootLayout({ children }: Props) {
       </head>
       <body>
         <div className="relative">
-          {/* For smooth scroll */}
-          <LenisScroll />
-
           <Navigation openedBy={openedBy} />
           <HamburgerIcon
             slider={slider}

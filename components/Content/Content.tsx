@@ -1,5 +1,6 @@
 import { Slider } from "@/store/useSlider";
 import styles from "./Content.module.scss";
+import { useEffect, useRef } from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -7,8 +8,19 @@ type Props = {
 };
 
 const Content = ({ children, slider }: Props) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // Debug scroll behavior
+  useEffect(() => {
+    if (contentRef.current) {
+      console.log("Content height:", contentRef.current.scrollHeight);
+      console.log("Viewport height:", window.innerHeight);
+    }
+  }, [children]);
+
   return (
     <div
+      ref={contentRef}
       className={styles.mainWrapper}
       style={{
         top: !slider ? 0 : slider === "navigation" ? "50px" : "-50px",
@@ -23,7 +35,7 @@ const Content = ({ children, slider }: Props) => {
           : slider === "socials"
           ? "50px"
           : "0px",
-        // height: "100%",
+        backgroundColor: "black", // Ensure background color is set
       }}
     >
       {children}

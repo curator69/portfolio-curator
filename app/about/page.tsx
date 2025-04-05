@@ -11,7 +11,7 @@ const Tech = ({ text }: { text: string }) => (
 
 export default function Page() {
   return (
-    <div className="bg-black text-white p-4 sm:p-6 md:p-8 min-h-screen">
+    <div className="bg-black text-white p-4 sm:p-6 md:p-8">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent">
         About Me
       </h1>

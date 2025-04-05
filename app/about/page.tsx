@@ -2,6 +2,7 @@
 
 import Experience from "@/components/about/Experience";
 import Skills from "@/components/about/Skills";
+import Monogram from "@/components/home/Monogram";
 
 const Tech = ({ text }: { text: string }) => (
   <span className="text-emerald-400 hover:underline underline-offset-2">
@@ -12,7 +13,11 @@ const Tech = ({ text }: { text: string }) => (
 export default function Page() {
   return (
     <div className="bg-black text-white p-4 sm:p-6 md:p-8">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent">
+      <div className="absolute top-7 left-6 z-20">
+        <Monogram letter="R" size="md" animated={false} />
+      </div>
+
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent ml-16">
         About Me
       </h1>
 

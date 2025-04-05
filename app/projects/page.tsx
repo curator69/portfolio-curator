@@ -4,13 +4,18 @@ import { projects } from "@/data/projects";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import Monogram from "@/components/home/Monogram";
 
 export default function Page() {
   const [activeProject, setActiveProject] = useState<number | null>(null);
 
   return (
     <div className="bg-black text-white p-4 sm:p-6 md:p-8 min-h-screen">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent">
+      <div className="absolute top-7 left-6 z-20">
+        <Monogram letter="R" size="md" animated={false} />
+      </div>
+
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent ml-16">
         Projects
       </h1>
 

@@ -40,21 +40,21 @@ export default function Page() {
   };
 
   return (
-    <div className="bg-black text-white p-8 min-h-screen">
-      <h1 className="text-5xl font-bold mb-12 bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent">
+    <div className="bg-black text-white p-4 sm:p-6 md:p-8 min-h-screen">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent">
         Contact
       </h1>
 
       <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
           {/* Left side - Contact form */}
           <div>
             {isSubmitted ? (
-              <div className="h-full flex flex-col items-center justify-center py-16">
-                <div className="bg-emerald-500/30 p-6 rounded-full">
+              <div className="h-full flex flex-col items-center justify-center py-8 md:py-16">
+                <div className="bg-emerald-500/30 p-4 md:p-6 rounded-full">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-12 w-12 text-white"
+                    className="h-8 w-8 md:h-12 md:w-12 text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -67,22 +67,24 @@ export default function Page() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-3xl font-bold mt-8 mb-2">Message Sent!</h3>
-                <p className="text-gray-400 text-center max-w-sm">
+                <h3 className="text-2xl md:text-3xl font-bold mt-6 md:mt-8 mb-2">
+                  Message Sent!
+                </h3>
+                <p className="text-sm md:text-base text-gray-400 text-center max-w-sm">
                   Thanks for reaching out. I'll get back to you as soon as
                   possible.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <h2 className="text-3xl font-bold mb-8 inline-block relative">
+              <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+                <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 inline-block relative">
                   Let's Talk
                   <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-emerald-400"></span>
                 </h2>
 
-                <div className="space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   <div className="relative">
-                    <label className="block text-gray-400 mb-2">
+                    <label className="block text-sm md:text-base text-gray-400 mb-1 md:mb-2">
                       Your Name
                     </label>
                     <input
@@ -91,12 +93,12 @@ export default function Page() {
                       value={formState.name}
                       onChange={handleChange}
                       required
-                      className="w-full bg-gray-900 border border-gray-800 rounded-lg py-3 px-4 focus:outline-none focus:border-emerald-400 transition-colors"
+                      className="w-full bg-gray-900 border border-gray-800 rounded-lg py-2 md:py-3 px-3 md:px-4 focus:outline-none focus:border-emerald-400 transition-colors text-sm md:text-base"
                     />
                   </div>
 
                   <div className="relative">
-                    <label className="block text-gray-400 mb-2">
+                    <label className="block text-sm md:text-base text-gray-400 mb-1 md:mb-2">
                       Your Email
                     </label>
                     <input
@@ -105,12 +107,12 @@ export default function Page() {
                       value={formState.email}
                       onChange={handleChange}
                       required
-                      className="w-full bg-gray-900 border border-gray-800 rounded-lg py-3 px-4 focus:outline-none focus:border-emerald-400 transition-colors"
+                      className="w-full bg-gray-900 border border-gray-800 rounded-lg py-2 md:py-3 px-3 md:px-4 focus:outline-none focus:border-emerald-400 transition-colors text-sm md:text-base"
                     />
                   </div>
 
                   <div className="relative">
-                    <label className="block text-gray-400 mb-2">
+                    <label className="block text-sm md:text-base text-gray-400 mb-1 md:mb-2">
                       Your Message
                     </label>
                     <textarea
@@ -119,7 +121,7 @@ export default function Page() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full bg-gray-900 border border-gray-800 rounded-lg py-3 px-4 focus:outline-none focus:border-emerald-400 transition-colors resize-none"
+                      className="w-full bg-gray-900 border border-gray-800 rounded-lg py-2 md:py-3 px-3 md:px-4 focus:outline-none focus:border-emerald-400 transition-colors resize-none text-sm md:text-base"
                     ></textarea>
                   </div>
                 </div>
@@ -127,7 +129,7 @@ export default function Page() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg transition-colors duration-200 flex items-center"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-lg transition-colors duration-200 flex items-center text-sm md:text-base"
                 >
                   {isSubmitting ? (
                     <>
@@ -158,7 +160,7 @@ export default function Page() {
                       Send Message
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 ml-2"
+                        className="h-4 w-4 md:h-5 md:w-5 ml-2"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -179,23 +181,23 @@ export default function Page() {
 
           {/* Right side - Contact info */}
           <div>
-            <h2 className="text-3xl font-bold mb-8 inline-block relative">
+            <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 inline-block relative">
               Connect
               <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-emerald-400"></span>
             </h2>
 
-            <p className="text-gray-300 mb-12 text-lg">
+            <p className="text-base md:text-lg text-gray-300 mb-8 md:mb-12">
               I'm currently available for freelance work and open to discussing
               new opportunities. Feel free to reach out if you have a project in
               mind or just want to connect.
             </p>
 
-            <div className="space-y-8">
-              <div className="flex items-start space-x-6 p-4 rounded-lg border border-gray-800 hover:border-emerald-500/30 transition-colors">
-                <div className="bg-gray-800 p-4 rounded-full">
+            <div className="space-y-4 md:space-y-8">
+              <div className="flex items-start space-x-4 md:space-x-6 p-3 md:p-4 rounded-lg border border-gray-800 hover:border-emerald-500/30 transition-colors">
+                <div className="bg-gray-800 p-3 md:p-4 rounded-full">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-emerald-400"
+                    className="h-5 w-5 md:h-6 md:w-6 text-emerald-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -209,21 +211,23 @@ export default function Page() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium text-white">Email</h3>
+                  <h3 className="text-lg md:text-xl font-medium text-white">
+                    Email
+                  </h3>
                   <a
                     href="mailto:rushikeshkhillari10@gmail.com"
-                    className="text-gray-400 hover:text-emerald-400 transition-colors"
+                    className="text-sm md:text-base text-gray-400 hover:text-emerald-400 transition-colors break-all"
                   >
                     rushikeshkhillari10@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-6 p-4 rounded-lg border border-gray-800 hover:border-blue-500/30 transition-colors">
-                <div className="bg-gray-800 p-4 rounded-full">
+              <div className="flex items-start space-x-4 md:space-x-6 p-3 md:p-4 rounded-lg border border-gray-800 hover:border-blue-500/30 transition-colors">
+                <div className="bg-gray-800 p-3 md:p-4 rounded-full">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-blue-400"
+                    className="h-5 w-5 md:h-6 md:w-6 text-blue-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -237,14 +241,14 @@ export default function Page() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium text-white">
+                  <h3 className="text-lg md:text-xl font-medium text-white">
                     Social Media
                   </h3>
-                  <div className="flex flex-wrap gap-4 mt-2">
+                  <div className="flex flex-wrap gap-3 md:gap-4 mt-1 md:mt-2">
                     <Link
                       href="https://github.com/curator69"
                       target="_blank"
-                      className="text-gray-400 hover:text-white transition-colors flex items-center gap-1"
+                      className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1"
                     >
                       <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
                       GitHub
@@ -252,7 +256,7 @@ export default function Page() {
                     <Link
                       href="https://www.linkedin.com/in/rushikesh-k-3a3977153/"
                       target="_blank"
-                      className="text-gray-400 hover:text-white transition-colors flex items-center gap-1"
+                      className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1"
                     >
                       <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
                       LinkedIn
@@ -260,7 +264,7 @@ export default function Page() {
                     <Link
                       href="https://x.com/curator142"
                       target="_blank"
-                      className="text-gray-400 hover:text-white transition-colors flex items-center gap-1"
+                      className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1"
                     >
                       <span className="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
                       Twitter
@@ -269,11 +273,11 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-6 p-4 rounded-lg border border-gray-800 hover:border-purple-500/30 transition-colors">
-                <div className="bg-gray-800 p-4 rounded-full">
+              <div className="flex items-start space-x-4 md:space-x-6 p-3 md:p-4 rounded-lg border border-gray-800 hover:border-purple-500/30 transition-colors">
+                <div className="bg-gray-800 p-3 md:p-4 rounded-full">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-purple-400"
+                    className="h-5 w-5 md:h-6 md:w-6 text-purple-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -293,8 +297,12 @@ export default function Page() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium text-white">Location</h3>
-                  <p className="text-gray-400">Remote / Worldwide</p>
+                  <h3 className="text-lg md:text-xl font-medium text-white">
+                    Location
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-400">
+                    Remote / Worldwide
+                  </p>
                 </div>
               </div>
             </div>

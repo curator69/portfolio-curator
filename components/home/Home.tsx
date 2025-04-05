@@ -27,12 +27,12 @@ const Home = () => {
   };
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-black flex flex-col gap-10 items-center justify-center rounded-lg">
-      <article className="flex flex-col gap-2 items-center justify-center w-full h-full">
+    <div className="relative w-full h-full overflow-hidden bg-black flex flex-col gap-6 sm:gap-8 md:gap-10 items-center justify-center rounded-lg">
+      <article className="flex flex-col gap-1 sm:gap-1.5 md:gap-2 items-center justify-center w-full h-full">
         {/* Cryptic Name Component */}
         <CrypticName
           text={fullTitle}
-          className="text-[8rem] uppercase leading-none bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent font-extrabold drop-shadow-md"
+          className="text-4xl sm:text-6xl md:text-[8rem] uppercase leading-none bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent font-extrabold drop-shadow-md"
         />
 
         {/* Subtext Component */}
@@ -40,7 +40,7 @@ const Home = () => {
           text={fullSubtext}
           startAnimation={startSubtext}
           onComplete={handleSubtextComplete}
-          className="text-[2rem] font-medium leading-none"
+          className="text-lg sm:text-xl md:text-[2rem] font-medium leading-none"
         />
 
         {/* Button Component */}
@@ -48,7 +48,7 @@ const Home = () => {
           href="/about"
           text="About me"
           show={showButton}
-          className="border rounded-full p-2 px-4 mt-6"
+          className="border rounded-full p-1.5 sm:p-2 px-3 sm:px-4 mt-4 sm:mt-5 md:mt-6 text-sm sm:text-base md:text-lg"
         />
       </article>
     </div>

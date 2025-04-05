@@ -10,17 +10,17 @@ const Skills = () => {
 
   return (
     <>
-      <h2 className="text-3xl font-bold mt-16 mb-8 bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent">
+      <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mt-8 sm:mt-12 md:mt-16 mb-4 sm:mb-6 md:mb-8 bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent">
         Skills & Technologies
       </h2>
 
       {skillTypes.map((type) => (
-        <div key={type} className="mb-12">
-          <h3 className="text-xl font-semibold mb-4 text-emerald-400">
+        <div key={type} className="mb-6 sm:mb-8 md:mb-12">
+          <h3 className="text-lg sm:text-xl md:text-xl font-semibold mb-2 sm:mb-3 md:mb-4 text-emerald-400">
             {type}
           </h3>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6">
             {skills
               .filter((skill) => skill.type === type)
               .map((skill, index) => {
@@ -28,7 +28,7 @@ const Skills = () => {
                 return (
                   <div
                     key={index}
-                    className="flex flex-col items-center justify-center p-4 rounded-lg border border-gray-800 bg-gray-900 bg-opacity-40 transition-all duration-300"
+                    className="flex flex-col items-center justify-center p-2 sm:p-3 md:p-4 rounded-lg border border-gray-800 bg-gray-900 bg-opacity-40 transition-all duration-300"
                     style={{
                       transform:
                         hoveredSkill === skillIndex
@@ -44,7 +44,7 @@ const Skills = () => {
                     onMouseLeave={() => setHoveredSkill(null)}
                   >
                     <div
-                      className="w-16 h-16 relative mb-3 rounded-full p-2 bg-gray-800 flex items-center justify-center transition-all duration-300"
+                      className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 relative mb-2 sm:mb-2.5 md:mb-3 rounded-full p-2 bg-gray-800 flex items-center justify-center transition-all duration-300"
                       style={{
                         transform:
                           hoveredSkill === skillIndex
@@ -66,7 +66,7 @@ const Skills = () => {
                         }}
                       />
                     </div>
-                    <span className="text-center font-medium">
+                    <span className="text-center font-medium text-xs sm:text-sm md:text-base">
                       {skill.name}
                     </span>
                   </div>

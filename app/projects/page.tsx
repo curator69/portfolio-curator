@@ -12,7 +12,9 @@ export default function Page() {
   return (
     <div className="bg-black text-white p-4 sm:p-6 md:p-8 min-h-screen">
       <div className="flex items-center gap-4 mb-10">
-        <Monogram letter="R" size="md" animated={false} />
+        <Link href="/">
+          <Monogram letter="R" size="md" animated={false} />
+        </Link>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent">
           Projects

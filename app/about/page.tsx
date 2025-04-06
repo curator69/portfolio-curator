@@ -13,13 +13,13 @@ const Tech = ({ text }: { text: string }) => (
 export default function Page() {
   return (
     <div className="bg-black text-white p-4 sm:p-6 md:p-8">
-      <div className="absolute top-7 left-6 z-20">
+      <div className="flex items-center gap-4 mb-4">
         <Monogram letter="R" size="md" animated={false} />
-      </div>
 
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent ml-16">
-        About Me
-      </h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent">
+          About Me
+        </h1>
+      </div>
 
       <div className="mb-8 sm:mb-12 md:mb-16">
         <p className="text-base sm:text-lg md:text-xl mb-3 sm:mb-4 md:mb-6">

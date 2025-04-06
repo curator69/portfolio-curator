@@ -42,13 +42,13 @@ export default function Page() {
 
   return (
     <div className="bg-black text-white p-4 sm:p-6 md:p-8 min-h-screen">
-      <div className="absolute top-7 left-6 z-20">
+      <div className="flex items-center gap-4 mb-8">
         <Monogram letter="R" size="md" animated={false} />
-      </div>
 
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent ml-16">
-        Contact
-      </h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent">
+          Contact
+        </h1>
+      </div>
 
       <div className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">

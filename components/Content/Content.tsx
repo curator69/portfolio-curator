@@ -20,7 +20,6 @@ const Content = ({ children, slider }: Props) => {
 
   return (
     <div
-      ref={contentRef}
       className={styles.mainWrapper}
       style={{
         top: !slider ? 0 : slider === "navigation" ? "50px" : "-50px",
@@ -28,17 +27,20 @@ const Content = ({ children, slider }: Props) => {
         borderTopRightRadius: !slider
           ? 0
           : slider === "navigation"
-          ? "50px"
-          : "0px",
+            ? "50px"
+            : "0px",
         borderBottomRightRadius: !slider
           ? 0
           : slider === "socials"
-          ? "50px"
-          : "0px",
+            ? "50px"
+            : "0px",
         backgroundColor: "black", // Ensure background color is set
+        overflow: "hidden", // Hide the overflow including scrollbar
       }}
     >
-      {children}
+      <div ref={contentRef} className={styles.contentInner}>
+        {children}
+      </div>
     </div>
   );
 };

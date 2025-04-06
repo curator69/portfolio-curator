@@ -94,12 +94,12 @@ const Home = () => {
         <Monogram letter="R" size="md" animated={false} />
       </div>
 
-      <article className="flex flex-col gap-1 sm:gap-1.5 md:gap-2 items-center justify-center w-full h-full z-10">
-        {/* Cryptic Name Component */}
+      <article className="flex flex-col items-center justify-center w-full h-full z-10">
+        {/* Cryptic Name Component - Improved proportions */}
         <div className="relative">
           <CrypticName
             text={fullTitle}
-            className="text-4xl sm:text-6xl md:text-[8rem] uppercase leading-none bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent font-extrabold drop-shadow-md"
+            className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl lg:text-[8rem] uppercase leading-none bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent font-extrabold drop-shadow-md"
           />
 
           {/* Subtle line decoration */}
@@ -108,13 +108,15 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Subtext Component */}
-        <SubText
-          text={fullSubtext}
-          startAnimation={startSubtext}
-          onComplete={handleSubtextComplete}
-          className="text-lg sm:text-xl md:text-[2rem] font-medium leading-none text-center mt-4 sm:mt-6 md:mt-8"
-        />
+        {/* Subtext Component - Improved proportions */}
+        <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 text-center">
+          <SubText
+            text={fullSubtext}
+            startAnimation={startSubtext}
+            onComplete={handleSubtextComplete}
+            className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-center"
+          />
+        </div>
 
         {/* Button Component */}
         <AnimatedButton

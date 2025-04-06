@@ -36,7 +36,7 @@ const SubText: React.FC<SubTextProps> = ({
   const locationTyped = displayText.slice(prefix.length);
 
   return (
-    <span className={`relative ${className}`}>
+    <span className={`relative ${className} tracking-wide font-light`}>
       {showFullPrefix ? (
         <>
           {prefix}

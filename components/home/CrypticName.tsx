@@ -89,7 +89,9 @@ const CrypticName: React.FC<CrypticNameProps> = ({ text, className = "" }) => {
   };
 
   return (
-    <h1 className={`${className} ${orbitron.className}`}>
+    <h1
+      className={`${className} ${orbitron.className} tracking-tight whitespace-nowrap`}
+    >
       {displayText.split("").map((char, index) => (
         <span
           key={index}

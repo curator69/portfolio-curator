@@ -97,16 +97,18 @@ export default function Page() {
                         </Link>
                       )}
 
-                      <Link
-                        href={project.code_link}
-                        target="_blank"
-                        className="group relative px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 overflow-hidden rounded-lg border border-gray-700 text-xs sm:text-sm md:text-base"
-                      >
-                        <span className="absolute inset-0 w-0 bg-gray-800 transition-all duration-300 ease-out group-hover:w-full"></span>
-                        <span className="relative text-white font-medium">
-                          View Code
-                        </span>
-                      </Link>
+                      {project.code_link && (
+                        <Link
+                          href={project.code_link}
+                          target="_blank"
+                          className="group relative px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 overflow-hidden rounded-lg border border-gray-700 text-xs sm:text-sm md:text-base"
+                        >
+                          <span className="absolute inset-0 w-0 bg-gray-800 transition-all duration-300 ease-out group-hover:w-full"></span>
+                          <span className="relative text-white font-medium">
+                            View Code
+                          </span>
+                        </Link>
+                      )}
                     </div>
                   </div>
 
@@ -116,7 +118,7 @@ export default function Page() {
                       <Image
                         src={project.image}
                         alt={project.name}
-                        className="object-cover"
+                        className="object-contain"
                         fill
                       />
                     </div>

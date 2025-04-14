@@ -44,7 +44,7 @@ export const projects: Project[] = [
       "WebSockets",
       "Google Maps API",
     ],
-    demo_link: "https://xcamper.com/about",
+    demo_link: "neckermanntravel.co.uk",
     type: "Professional",
   },
   {

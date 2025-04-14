@@ -42,6 +42,7 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "PostgreSQL",
       "WebSockets",
+      "Google Maps API",
     ],
     demo_link: "https://xcamper.com/about",
     type: "Professional",

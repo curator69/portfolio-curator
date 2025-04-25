@@ -3,6 +3,7 @@ import CrypticName from "./CrypticName";
 import SubText from "./SubText";
 import AnimatedButton from "./AnimatedButton";
 import Monogram from "./Monogram";
+import ParticleField from "./ParticleField";
 
 const Home = () => {
   const fullTitle = "Rushikesh";
@@ -15,9 +16,12 @@ const Home = () => {
 
   // Start subtext animation after title is expected to finish
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setStartSubtext(true);
-    }, fullTitle.length * 150 + 500); // Approximate time for name to finish + buffer
+    const timeout = setTimeout(
+      () => {
+        setStartSubtext(true);
+      },
+      fullTitle.length * 150 + 500
+    ); // Approximate time for name to finish + buffer
 
     return () => clearTimeout(timeout);
   }, []);
@@ -74,6 +78,11 @@ const Home = () => {
     <div className="relative w-full h-full overflow-hidden bg-black flex flex-col items-center justify-center px-4 sm:px-6 md:px-8">
       {/* Background grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] opacity-30"></div>
+
+      {/* Interactive Particle Field */}
+      <div className="absolute inset-0 z-0">
+        <ParticleField count={50} />
+      </div>
 
       {/* Subtle glow effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-emerald-900/10 blur-[100px] pointer-events-none"></div>

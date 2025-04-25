@@ -1,40 +1,23 @@
-"use client";
-
 import "./globals.css";
-import Navigation from "@/components/Navigation/Navigation";
-import HamburgerIcon from "@/components/Navigation/HamburgerIcon";
-import SocialButton from "@/components/Navigation/SocialButton";
-import Content from "@/components/Content/Content";
-import { useSlider } from "@/store/useSlider";
 import { GeistMono } from "geist/font/mono";
+import { Metadata } from "next";
+import { defaultMetadata } from "@/metadata";
+import ClientLayout from "@/components/home/client-layout";
 
 type Props = {
   children: React.ReactNode;
 };
 
-export default function RootLayout({ children }: Props) {
-  const { slider, setSlider, openedBy, setOpenedBy } = useSlider();
+export const metadata: Metadata = defaultMetadata;
 
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" className={GeistMono.className}>
       <head>
-        <style></style>
+        <link rel="canonical" href="https://portfolio-curator.vercel.app/" />
       </head>
       <body>
-        <div className="relative">
-          <Navigation openedBy={openedBy} />
-          <HamburgerIcon
-            slider={slider}
-            onClick={() => setSlider(slider === null ? "navigation" : null)}
-            setOpenedBy={() => setOpenedBy("navigation")}
-          />
-          <SocialButton
-            slider={slider}
-            onClick={() => setSlider(slider === null ? "socials" : null)}
-            setOpenedBy={() => setOpenedBy("socials")}
-          />
-          <Content slider={slider}>{children}</Content>
-        </div>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

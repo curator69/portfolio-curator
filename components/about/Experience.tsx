@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { data } from "@/data/experience";
+import DownloadResumeBtn from "./DownloadResumeBtn";
 
 const Experience = () => {
   // State to track which accordion items are open
@@ -22,9 +23,13 @@ const Experience = () => {
 
   return (
     <>
-      <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 md:mb-8 bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent">
-        Experience
-      </h2>
+      <div className="flex items-center justify-between mb-6 sm:mb-8 md:mb-10">
+        <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-gray-500 via-white to-gray-500 bg-clip-text text-transparent">
+          Experience
+        </h2>
+
+        <DownloadResumeBtn />
+      </div>
 
       <div className="space-y-4 sm:space-y-6 md:space-y-8">
         {data.map((experience, index) => (

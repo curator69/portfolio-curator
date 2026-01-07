@@ -6,6 +6,7 @@ interface AnimatedButtonProps {
   text: string;
   show: boolean;
   className?: string;
+  download?: string | boolean; // Prop to trigger download behavior
 }
 
 const AnimatedButton: React.FC<AnimatedButtonProps> = ({
@@ -13,6 +14,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   text,
   show,
   className = "",
+  download,
 }) => {
   const [opacity, setOpacity] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -22,29 +24,28 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       const timeout = setTimeout(() => {
         setOpacity((prev) => Math.min(prev + 0.1, 1));
       }, 50);
-
       return () => clearTimeout(timeout);
     }
   }, [show, opacity]);
 
   if (!show) return null;
 
-  return (
-    <Link
-      href={href}
-      className={`relative overflow-hidden transition-all duration-500 ${className}`}
-      style={{
-        opacity,
-        background: isHovered ? "rgba(255, 255, 255, 0.1)" : "transparent",
-        transform: isHovered ? "translateY(-3px)" : "translateY(0)",
-        boxShadow: isHovered ? "0 10px 20px rgba(0, 0, 0, 0.2)" : "none",
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <span className="relative z-10">{text}</span>
+  // Shared styles and event handlers to keep the component DRY
+  const commonProps = {
+    className: `relative overflow-hidden transition-all duration-500 flex items-center justify-center ${className}`,
+    style: {
+      opacity,
+      background: isHovered ? "rgba(255, 255, 255, 0.1)" : "transparent",
+      transform: isHovered ? "translateY(-3px)" : "translateY(0)",
+      boxShadow: isHovered ? "0 10px 20px rgba(0, 0, 0, 0.2)" : "none",
+    },
+    onMouseEnter: () => setIsHovered(true),
+    onMouseLeave: () => setIsHovered(false),
+  };
 
-      {/* Animated border effect */}
+  const content = (
+    <>
+      <span className="relative z-10">{text}</span>
       <span
         className="absolute inset-0 z-0 overflow-hidden"
         style={{
@@ -55,8 +56,6 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
           opacity: isHovered ? 1 : 0,
         }}
       />
-
-      {/* Animated glow effect */}
       <span
         className="absolute inset-0 z-0"
         style={{
@@ -67,6 +66,22 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
           opacity: isHovered ? 1 : 0,
         }}
       />
+    </>
+  );
+
+  // If download prop exists, use a standard <a> tag
+  if (download) {
+    return (
+      <a href={href} download={download} {...commonProps}>
+        {content}
+      </a>
+    );
+  }
+
+  // Otherwise, use Next.js Link for internal navigation
+  return (
+    <Link href={href} {...commonProps}>
+      {content}
     </Link>
   );
 };

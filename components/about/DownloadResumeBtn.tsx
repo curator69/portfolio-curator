@@ -4,7 +4,7 @@ const DownloadResumeBtn = () => {
   return (
     <AnimatedButton
       show={true}
-      href="/Resume.pdf"
+      href="/Resume - Rushikesh Khilari.pdf"
       download="Resume - Rushikesh Khilari.pdf"
       text="Download Resume"
       className="border border-emerald-500/70 rounded-full p-1.5 sm:p-2 px-3 sm:px-4 text-sm sm:text-base md:text-lg hover:bg-emerald-500/10 transition-colors duration-300"

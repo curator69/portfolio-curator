@@ -6,7 +6,6 @@ const orbitron = Orbitron({
   weight: "700",
 });
 
-// Characters to use for the cryptic effect - using more matrix-like characters
 const crypticChars =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/\\~`";
 
@@ -19,10 +18,30 @@ const CrypticName: React.FC<CrypticNameProps> = ({ text, className = "" }) => {
   const [displayText, setDisplayText] = useState("");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [letterStates, setLetterStates] = useState<string[]>([]);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const intervalRefs = useRef<{ [key: number]: NodeJS.Timeout }>({});
 
-  // Typewriter effect
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) {
+      setReducedMotion(true);
+      setDisplayText(text);
+      setLetterStates(text.split(""));
+    }
+    const handleChange = (e: MediaQueryListEvent) => {
+      setReducedMotion(e.matches);
+      if (e.matches) {
+        setDisplayText(text);
+        setLetterStates(text.split(""));
+      }
+    };
+    mq.addEventListener("change", handleChange);
+    return () => mq.removeEventListener("change", handleChange);
+  }, [text]);
+
+  // Typewriter effect — skip if reduced motion
+  useEffect(() => {
+    if (reducedMotion) return;
     if (displayText.length < text.length) {
       const timeout = setTimeout(() => {
         setDisplayText(text.slice(0, displayText.length + 1));
@@ -31,26 +50,22 @@ const CrypticName: React.FC<CrypticNameProps> = ({ text, className = "" }) => {
 
       return () => clearTimeout(timeout);
     }
-  }, [displayText, text]);
+  }, [displayText, text, reducedMotion]);
 
-  // Handle cryptic effect on hover
   const handleMouseEnter = (index: number) => {
+    if (reducedMotion) return;
     setHoveredIndex(index);
 
-    // Clear any existing interval for this index
     if (intervalRefs.current[index]) {
       clearInterval(intervalRefs.current[index]);
     }
 
-    // Original character
     const originalChar = text[index];
     let iterations = 0;
-    const maxIterations = 10; // Number of changes before settling back to original
+    const maxIterations = 10;
 
-    // Start cryptic animation
     intervalRefs.current[index] = setInterval(() => {
       if (iterations >= maxIterations) {
-        // Return to original character after several iterations
         setLetterStates((prev) => {
           const newStates = [...prev];
           newStates[index] = originalChar;
@@ -73,11 +88,10 @@ const CrypticName: React.FC<CrypticNameProps> = ({ text, className = "" }) => {
   };
 
   const handleMouseLeave = (index: number) => {
-    // Clear the interval when not hovering
+    if (reducedMotion) return;
     if (intervalRefs.current[index]) {
       clearInterval(intervalRefs.current[index]);
 
-      // Reset to original character
       setLetterStates((prev) => {
         const newStates = [...prev];
         newStates[index] = text[index];

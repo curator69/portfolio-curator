@@ -22,6 +22,15 @@ const ParticleField: React.FC<ParticleFieldProps> = ({
   mouseEffect = true,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handleChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", handleChange);
+    return () => mq.removeEventListener("change", handleChange);
+  }, []);
   const particlesRef = useRef<Particle[]>([]);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const mousePos = useRef({ x: 0, y: 0 });
@@ -281,6 +290,8 @@ const ParticleField: React.FC<ParticleFieldProps> = ({
       cancelAnimationFrame(animationRef.current);
     };
   }, [dimensions, mouseEffect]);
+
+  if (reducedMotion) return null;
 
   return (
     <canvas

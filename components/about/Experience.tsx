@@ -54,8 +54,10 @@ const Experience = () => {
             )}
 
             {/* Accordion header - always visible */}
-            <div
-              className="p-4 sm:p-5 md:p-6 flex items-start gap-3 sm:gap-4 md:gap-6 cursor-pointer relative z-10"
+            <button
+              type="button"
+              aria-expanded={openItems.includes(index)}
+              className="w-full text-left p-4 sm:p-5 md:p-6 flex items-start gap-3 sm:gap-4 md:gap-6 cursor-pointer relative z-10 bg-transparent border-0"
               onClick={() => toggleItem(index)}
             >
               {/* Company logo */}
@@ -103,7 +105,7 @@ const Experience = () => {
               </div>
 
               {/* Accordion toggle icon */}
-              <div className="flex-shrink-0 flex items-center mt-1">
+              <span className="flex-shrink-0 flex items-center mt-1">
                 <svg
                   className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transition-all duration-500 ${
                     openItems.includes(index) ? "rotate-180" : ""
@@ -121,8 +123,8 @@ const Experience = () => {
                     d="M19 9l-7 7-7-7"
                   />
                 </svg>
-              </div>
-            </div>
+              </span>
+            </button>
 
             {/* Accordion content - visible when expanded */}
             <div

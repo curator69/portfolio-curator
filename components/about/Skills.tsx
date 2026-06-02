@@ -1,3 +1,5 @@
+"use client";
+
 import { skills } from "@/data/skills";
 import Image from "next/image";
 import { useState } from "react";

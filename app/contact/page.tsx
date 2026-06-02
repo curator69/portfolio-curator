@@ -1,65 +1,22 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import Monogram from "@/components/home/Monogram";
+import ContactForm from "@/components/contact/ContactForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact | Rushikesh Portfolio",
+  description:
+    "Get in touch with Rushikesh. Available for freelance work and open to new opportunities.",
+  alternates: {
+    canonical: "https://portfolio-curator.vercel.app/contact",
+  },
+};
 
 export default function Page() {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formState),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to send message");
-      }
-
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormState({ name: "", email: "", message: "" });
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    } catch (error) {
-      console.error("Error sending email:", error);
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="bg-black text-white p-4 sm:p-6 md:p-8 min-h-screen">
       <div className="flex items-center gap-4 mb-8">
-        <Link href="/">
+        <Link href="/" aria-label="Go to home">
           <Monogram letter="R" size="md" animated={false} />
         </Link>
 
@@ -71,136 +28,7 @@ export default function Page() {
       <div className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
           {/* Left side - Contact form */}
-          <div>
-            {isSubmitted ? (
-              <div className="h-full flex flex-col items-center justify-center py-8 md:py-16">
-                <div className="bg-emerald-500/30 p-4 md:p-6 rounded-full">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8 md:h-12 md:w-12 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold mt-6 md:mt-8 mb-2">
-                  Message Sent!
-                </h3>
-                <p className="text-sm md:text-base text-gray-400 text-center max-w-sm">
-                  Thanks for reaching out. I'll get back to you as soon as
-                  possible.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
-                <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 inline-block relative">
-                  Let's Talk
-                  <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-emerald-400"></span>
-                </h2>
-
-                <div className="space-y-4 md:space-y-6">
-                  <div className="relative">
-                    <label className="block text-sm md:text-base text-gray-400 mb-1 md:mb-2">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formState.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full bg-gray-900 border border-gray-800 rounded-lg py-2 md:py-3 px-3 md:px-4 focus:outline-none focus:border-emerald-400 transition-colors text-sm md:text-base"
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <label className="block text-sm md:text-base text-gray-400 mb-1 md:mb-2">
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formState.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full bg-gray-900 border border-gray-800 rounded-lg py-2 md:py-3 px-3 md:px-4 focus:outline-none focus:border-emerald-400 transition-colors text-sm md:text-base"
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <label className="block text-sm md:text-base text-gray-400 mb-1 md:mb-2">
-                      Your Message
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formState.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="w-full bg-gray-900 border border-gray-800 rounded-lg py-2 md:py-3 px-3 md:px-4 focus:outline-none focus:border-emerald-400 transition-colors resize-none text-sm md:text-base"
-                    ></textarea>
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-lg transition-colors duration-200 flex items-center text-sm md:text-base"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <svg
-                        className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        ></circle>
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        ></path>
-                      </svg>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 md:h-5 md:w-5 ml-2"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        />
-                      </svg>
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </div>
+          <ContactForm />
 
           {/* Right side - Contact info */}
           <div>
@@ -210,7 +38,7 @@ export default function Page() {
             </h2>
 
             <p className="text-base md:text-lg text-gray-300 mb-8 md:mb-12">
-              I'm currently available for freelance work and open to discussing
+              I&apos;m currently available for freelance work and open to discussing
               new opportunities. Feel free to reach out if you have a project in
               mind or just want to connect.
             </p>
@@ -224,6 +52,7 @@ export default function Page() {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -254,6 +83,7 @@ export default function Page() {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -271,25 +101,28 @@ export default function Page() {
                     <Link
                       href="https://github.com/curator69"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1"
                     >
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" aria-hidden="true"></span>
                       GitHub
                     </Link>
                     <Link
                       href="https://www.linkedin.com/in/rushikesh-k-3a3977153/"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1"
                     >
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full" aria-hidden="true"></span>
                       LinkedIn
                     </Link>
                     <Link
                       href="https://x.com/curator142"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1"
                     >
-                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
+                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full" aria-hidden="true"></span>
                       Twitter
                     </Link>
                   </div>
@@ -304,6 +137,7 @@ export default function Page() {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"

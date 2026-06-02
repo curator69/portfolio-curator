@@ -7,7 +7,7 @@ export const data = [
   {
     title: "Software Engineer",
     company_name: "Retransform",
-    company_url: "https://retransform.com//",
+    company_url: "https://retransform.com/",
     icon: retransform,
     iconBg: "white",
     date: "Feb 2025 - Present",

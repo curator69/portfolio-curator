@@ -1,6 +1,6 @@
 import { Slider } from "@/store/useSlider";
 import styles from "./Content.module.scss";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -10,13 +10,6 @@ type Props = {
 const Content = ({ children, slider }: Props) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // Debug scroll behavior
-  useEffect(() => {
-    if (contentRef.current) {
-      console.log("Content height:", contentRef.current.scrollHeight);
-      console.log("Viewport height:", window.innerHeight);
-    }
-  }, [children]);
 
   return (
     <div

@@ -77,7 +77,7 @@ const Home = () => {
   };
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-black flex flex-col items-center justify-center px-4 sm:px-6 md:px-8">
+    <div className="relative w-full h-[100dvh] overflow-hidden bg-black flex flex-col items-center justify-center px-4 sm:px-6 md:px-8">
       {/* Background grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] opacity-30"></div>
 
@@ -95,8 +95,7 @@ const Home = () => {
         style={{
           left: mousePosition.x - 80,
           top: mousePosition.y - 80,
-          transition: "transform 0.2s ease-out",
-          transform: "translate3d(0, 0, 0)",
+          transition: "left 0.2s ease-out, top 0.2s ease-out",
         }}
       />
 

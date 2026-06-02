@@ -44,7 +44,7 @@ export const projects: Project[] = [
       "WebSockets",
       "Google Maps API",
     ],
-    demo_link: "neckermanntravel.co.uk",
+    demo_link: "https://neckermanntravel.co.uk",
     type: "Professional",
   },
   {
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     description:
       "Greenlight API is a JSON-based RESTful API for managing movie information, inspired by the Open Movie Database API. This project is built with Go and uses PostgreSQL as the database for storing movie details, user authentication, and more.",
     technologies: ["Go", "PostgreSQL", "HTML", "CSS", "JavaScript", "Docker"],
-    code_link: "https://github.com/curator69/snippetbox",
+    code_link: "https://github.com/curator69/greenlight-api",
     type: "Personal",
   },
   {
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     image: aiDiscussion,
     description:
       "The AI Discussion Arena is a dynamic platform where users can spark intellectual debates by selecting two AI models (like GPT-4, Claude 2, PaLM 2, or Llama 2) to engage in real-time discussions on user-chosen topics, featuring a sleek interface with dark/light themes, profile management, and an immersive chat experience that showcases AI-to-AI interactions on complex subjects ranging from consciousness to cryptocurrency.",
-    technologies: ["NextJs", "Tailwind CSS", "NodeJs", "Next.js", "OpenAI"],
+    technologies: ["Next.js", "Tailwind CSS", "Node.js", "OpenAI"],
     code_link: "https://github.com/curator69/ai-discussion-frontend",
     type: "Personal",
     in_progress: true,

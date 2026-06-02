@@ -1,4 +1,6 @@
-import { useState } from "react";
+"use client";
+
+import { useState, useId } from "react";
 
 interface MonogramProps {
   letter: string;
@@ -14,8 +16,8 @@ const Monogram: React.FC<MonogramProps> = ({
   animated = true,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
 
-  // Size mapping
   const sizeClasses = {
     sm: "w-10 h-10",
     md: "w-12 h-12 sm:w-14 sm:h-14",
@@ -43,7 +45,7 @@ const Monogram: React.FC<MonogramProps> = ({
         }`}
       ></div>
 
-      {/* Stylized R with lotus/chakra elements - representing spiritual meaning */}
+      {/* Stylized R with lotus/chakra elements */}
       <div className="absolute inset-0 flex items-center justify-center">
         <svg
           viewBox="0 0 100 100"
@@ -57,7 +59,6 @@ const Monogram: React.FC<MonogramProps> = ({
               isHovered ? "opacity-100" : "opacity-70"
             }`}
           >
-            {/* Petals/rays - representing the senses */}
             {[...Array(6)].map((_, i) => (
               <path
                 key={i}
@@ -66,9 +67,9 @@ const Monogram: React.FC<MonogramProps> = ({
                 } A 35 35 0 0 1 ${
                   50 + 35 * Math.cos(((i + 1) * Math.PI) / 3)
                 } ${50 + 35 * Math.sin(((i + 1) * Math.PI) / 3)} Z`}
-                fill="url(#petalGradient)"
+                fill={`url(#${uid}-petalGradient)`}
                 opacity="0.3"
-                className="animate-petal-pulse"
+                className={animated ? "animate-petal-pulse" : ""}
                 style={{ animationDelay: `${i * 0.2}s` }}
               />
             ))}
@@ -78,8 +79,8 @@ const Monogram: React.FC<MonogramProps> = ({
           <g transform="translate(35, 30) scale(0.35)">
             <path
               d="M30,20 h40 a20,20 0 0 1 0,40 h-10 l25,30 h-25 l-20,-30 h-10 v30 h-20 v-70 h20 Z"
-              fill="url(#letterGradient)"
-              className="animate-letter-draw"
+              fill={`url(#${uid}-letterGradient)`}
+              className={animated ? "animate-letter-draw" : ""}
               strokeLinecap="round"
               strokeLinejoin="round"
               stroke="#10b981"
@@ -87,21 +88,20 @@ const Monogram: React.FC<MonogramProps> = ({
             />
           </g>
 
-          {/* Center dot - representing control/mastery */}
+          {/* Center dot */}
           <circle
             cx="50"
             cy="50"
             r="5"
-            fill="url(#centerGradient)"
+            fill={`url(#${uid}-centerGradient)`}
             className={`transition-all duration-300 ${
-              isHovered ? "animate-center-pulse" : ""
+              isHovered && animated ? "animate-center-pulse" : ""
             }`}
           />
 
-          {/* Gradients */}
           <defs>
             <linearGradient
-              id="petalGradient"
+              id={`${uid}-petalGradient`}
               x1="0%"
               y1="0%"
               x2="100%"
@@ -111,7 +111,7 @@ const Monogram: React.FC<MonogramProps> = ({
               <stop offset="100%" stopColor="#10b981" stopOpacity="0.3" />
             </linearGradient>
             <linearGradient
-              id="letterGradient"
+              id={`${uid}-letterGradient`}
               x1="0%"
               y1="0%"
               x2="100%"
@@ -121,7 +121,7 @@ const Monogram: React.FC<MonogramProps> = ({
               <stop offset="100%" stopColor="#059669" stopOpacity="0.8" />
             </linearGradient>
             <linearGradient
-              id="centerGradient"
+              id={`${uid}-centerGradient`}
               x1="0%"
               y1="0%"
               x2="100%"
@@ -145,11 +145,11 @@ const Monogram: React.FC<MonogramProps> = ({
           cy="50"
           r="45"
           fill="none"
-          stroke="url(#monogramGradient)"
+          stroke={`url(#${uid}-monogramGradient)`}
           strokeWidth="1.5"
           strokeDasharray="283"
           strokeDashoffset="283"
-          className="animate-monogram-draw"
+          className={animated ? "animate-monogram-draw" : ""}
         />
 
         {/* Inner ring - appears on hover */}
@@ -158,7 +158,7 @@ const Monogram: React.FC<MonogramProps> = ({
           cy="50"
           r="38"
           fill="none"
-          stroke="url(#monogramGradient2)"
+          stroke={`url(#${uid}-monogramGradient2)`}
           strokeWidth="1"
           strokeDasharray="239"
           strokeLinecap="round"
@@ -168,7 +168,7 @@ const Monogram: React.FC<MonogramProps> = ({
           }}
         />
 
-        {/* Five dots representing the five senses */}
+        {/* Five dots */}
         {[...Array(5)].map((_, i) => (
           <circle
             key={i}
@@ -176,15 +176,14 @@ const Monogram: React.FC<MonogramProps> = ({
             cy={50 + 45 * Math.sin((i * 2 * Math.PI) / 5 - Math.PI / 2)}
             r="2"
             fill="#10b981"
-            className="animate-monogram-pulse"
+            className={animated ? "animate-monogram-pulse" : ""}
             style={{ animationDelay: `${i * 0.3}s` }}
           />
         ))}
 
-        {/* Gradients */}
         <defs>
           <linearGradient
-            id="monogramGradient"
+            id={`${uid}-monogramGradient`}
             x1="0%"
             y1="0%"
             x2="100%"
@@ -194,7 +193,7 @@ const Monogram: React.FC<MonogramProps> = ({
             <stop offset="100%" stopColor="#10b981" stopOpacity="0.3" />
           </linearGradient>
           <linearGradient
-            id="monogramGradient2"
+            id={`${uid}-monogramGradient2`}
             x1="100%"
             y1="0%"
             x2="0%"
@@ -207,7 +206,7 @@ const Monogram: React.FC<MonogramProps> = ({
       </svg>
 
       {/* Particle effects on hover */}
-      {isHovered && (
+      {isHovered && animated && (
         <div className="absolute inset-0">
           {[...Array(6)].map((_, i) => (
             <div

@@ -26,7 +26,9 @@ const HamburgerIcon = ({ slider, onClick, setOpenedBy }: Props) => {
           ref={checkboxRef}
           className="checkbox"
           type="checkbox"
-          onClick={() => {
+          aria-label="Toggle navigation menu"
+          aria-expanded={slider === "navigation"}
+          onChange={() => {
             onClick();
             setOpenedBy();
           }}

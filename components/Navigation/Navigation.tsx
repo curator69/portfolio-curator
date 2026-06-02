@@ -84,6 +84,7 @@ const SocialLinks = ({
         <Link
           href={link.href}
           target="_blank"
+          rel="noopener noreferrer"
           key={index}
           className={styles.navLink}
           onClick={onLinkClick}

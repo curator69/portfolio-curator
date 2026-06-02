@@ -54,7 +54,7 @@
   scrollbar-color: rgba(16, 185, 129, 0.7) rgba(0, 0, 0, 0.3);
 }
 
-/* Add a new class for the inner content */
+/* Inner content wrapper — scrolling is handled by .mainWrapper */
 .contentInner {
   width: 100%;
   height: 100%;

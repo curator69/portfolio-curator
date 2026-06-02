@@ -9,7 +9,7 @@ type Props = {
 };
 
 const SocialButton = ({ slider, onClick, setOpenedBy }: Props) => {
-  const buttonRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (buttonRef.current) {
@@ -21,8 +21,11 @@ const SocialButton = ({ slider, onClick, setOpenedBy }: Props) => {
 
   return (
     <div className={styles.socialButtonWrapper}>
-      <div
+      <button
         ref={buttonRef}
+        type="button"
+        aria-label="Toggle social links"
+        aria-expanded={slider === "socials"}
         className={styles.socialButton}
         onClick={() => {
           onClick();
@@ -36,7 +39,7 @@ const SocialButton = ({ slider, onClick, setOpenedBy }: Props) => {
           <span className={styles.dot}></span>
         </div>
         <span className={styles.label}>Connect</span>
-      </div>
+      </button>
     </div>
   );
 };

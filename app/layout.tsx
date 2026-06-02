@@ -13,9 +13,6 @@ export const metadata: Metadata = defaultMetadata;
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" className={GeistMono.className}>
-      <head>
-        <link rel="canonical" href="https://portfolio-curator.vercel.app/" />
-      </head>
       <body>
         <ClientLayout>{children}</ClientLayout>
       </body>

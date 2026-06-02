@@ -22,7 +22,7 @@ export const defaultMetadata: Metadata = {
     siteName: "Rushikesh Portfolio",
     images: [
       {
-        url: "/images/logo.jpg",
+        url: "https://portfolio-curator.vercel.app/images/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Rushikesh Portfolio",
@@ -34,7 +34,7 @@ export const defaultMetadata: Metadata = {
     title: "Rushikesh | Portfolio",
     description:
       "Professional portfolio showcasing my work, skills, and experience as a Software Engineer",
-    images: ["/images/logo.jpg"],
+    images: ["https://portfolio-curator.vercel.app/images/logo.jpg"],
   },
   robots: {
     index: true,

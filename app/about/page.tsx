@@ -1,21 +1,27 @@
-"use client";
-
 import Experience from "@/components/about/Experience";
 import Skills from "@/components/about/Skills";
 import Monogram from "@/components/home/Monogram";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | Rushikesh Portfolio",
+  description:
+    "Learn about Rushikesh — a Software Engineer from Mumbai specialising in React, Next.js, TypeScript, and full-stack development.",
+  alternates: {
+    canonical: "https://portfolio-curator.vercel.app/about",
+  },
+};
 
 const Tech = ({ text }: { text: string }) => (
-  <span className="text-emerald-400 hover:underline underline-offset-2">
-    {text}
-  </span>
+  <span className="text-emerald-400">{text}</span>
 );
 
 export default function Page() {
   return (
     <div className="bg-black text-white p-4 sm:p-6 md:p-8">
       <div className="flex items-center gap-4 mb-4">
-        <Link href="/">
+        <Link href="/" aria-label="Go to home">
           <Monogram letter="R" size="md" animated={false} />
         </Link>
 
@@ -30,10 +36,11 @@ export default function Page() {
           web technologies, specializing in <Tech text="React" />,{" "}
           <Tech text="Next.js" />, <Tech text="TypeScript" />, and{" "}
           <Tech text="Tailwind CSS" />. With hands-on experience in building
-          scalable, user-centric applications, I'm driven to create responsive
+          scalable, user-centric applications, I&apos;m driven to create responsive
           and optimized web solutions. I also enjoy diving into full stack
           development with <Tech text="Node.js" /> and <Tech text="Golang" />,
           bringing a well-rounded approach to building web applications.
+
         </p>
         <p className="text-base sm:text-lg md:text-xl mb-3 sm:mb-4 md:mb-6">
           Beyond frontend development, I have worked extensively with libraries
